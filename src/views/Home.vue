@@ -4,7 +4,7 @@
     <div class="center-box">
       <div class="slideshow">
         <img class="logo" src="@/assets/logo.svg" alt />
-        <div class="title">Welcome to Nertivia</div>
+        <div class="title">Welcome to Nartimi</div>
         <div class="version">{{ $version }}</div>
         <div class="link" @click="showChangelog">View Changes</div>
       </div>
@@ -16,7 +16,7 @@
           </a>
           <a
             class="button"
-            href="https://github.com/Supertigerr/nertivia-desktop-app/releases"
+            href="https://github.com/FAYSi223/zen"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -27,7 +27,7 @@
         <div class="other-buttons">
           <a
             class="button github"
-            href="https://github.com/Supertigerr/"
+            href="https://github.com/Sound-Studios"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -36,7 +36,7 @@
           </a>
           <a
             class="button donate"
-            href="https://ko-fi.com/S6S243GRX"
+            href="https://ko-fi.com/faysi"
             target="_blank"
             rel="noopener noreferrer"
           >
