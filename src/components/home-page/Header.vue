@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <img class="logo" src="@/assets/logo.svg" alt />
-    <div class="title">Nertivia</div>
+    <div class="title">Nartimi</div>
     <div class="logged-in" v-if="token">
       <img class="spinner" src="@/assets/spinner.svg" v-if="!user" />
       <AvatarImage
@@ -17,7 +17,7 @@
     </div>
     <div class="buttons" v-if="!token">
       <a href="/login" class="button">Log In</a>
-      <div class="button join" @click="registerButton">Join Nertivia</div>
+      <div class="button join" @click="registerButton">Join Nartimi</div>
     </div>
   </div>
 </template>
