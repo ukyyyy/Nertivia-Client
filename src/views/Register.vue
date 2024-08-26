@@ -2,7 +2,7 @@
   <div class="register">
     <div class="center-box">
       <img class="logo" src="../assets/logo.svg" />
-      <div class="text">Nertivia has been discontinued.</div>
+      <div class="text">Nartimi is not open, we will back soon...</div>
       <div class="text">
         Please try out <a href="https://nerimity.com">https://nerimity.com</a> instead.
       </div>
