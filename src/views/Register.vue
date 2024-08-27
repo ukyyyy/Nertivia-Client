@@ -11,7 +11,7 @@
         <div class="description">
           <div class="material-icons warn">report_problem</div>
           <div class="text">
-            Nertivia is a fun project, Please don't come here just to be toxic
+            This is not the original Nertivia. We got permission to create it again, Please don't come here just to be toxic
             :(
           </div>
         </div>
