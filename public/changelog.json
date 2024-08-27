@@ -1,4 +1,16 @@
 [
+	
+	{
+		"version": "1.53.2-stable",
+		"date": "27 08 2024",
+		"title": "Pre-Release",
+		"fixes": [
+			"Fixed Server issues"
+		],
+		"changes": [
+			"Make the Server Online"
+		]
+	},
 	{
 		"version": "1.53.1-stable",
 		"date": "01 April 2022",
