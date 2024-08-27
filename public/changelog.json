@@ -1,6 +1,14 @@
 [
 	
 	{
+		"version": "1.53.3-stable",
+		"date": "27 08 2024",
+		"title": "Invite URL Fix",
+		"fixes": [
+			"Fixed Server invite URl"
+		]
+	},
+	{
 		"version": "1.53.2-stable",
 		"date": "27 08 2024",
 		"title": "Pre-Release",
