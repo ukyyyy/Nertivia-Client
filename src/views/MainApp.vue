@@ -53,7 +53,7 @@ import { defineAsyncComponent } from "vue";
 import { TabsModule } from "@/store/modules/tabs";
 import { defineComponent } from "vue";
 import store from "@/store";
-import { PopoutsModule } from "@/store/modules/popouts";
+// import { PopoutsModule } from "@/store/modules/popouts";
 import { voiceChannelModule } from "@/store/modules/voiceChannels";
 
 const Drawers = defineAsyncComponent(
@@ -128,15 +128,15 @@ export default defineComponent({
     },
   },
   mounted() {
-      PopoutsModule.ShowPopout({
-        id: "d-popout",
-        component: "DiscontinuedPopout",
-      });
+      // PopoutsModule.ShowPopout({
+      //   id: "d-popout",
+      //   component: "DiscontinuedPopout",
+      // });
 
 
 
     //const result = confirm("Nertivia is in a read-only state due to the database reaching full capacity.\nPlease try out Nerimity instead.\n\nOK: Visit https://nerimity.com\nCancel: Do nothing.")
-    
+
     //if (result) {
      // window?.open("https://nerimity.com", '_blank')?.focus?.();
     //}
