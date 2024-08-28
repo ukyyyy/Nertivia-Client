@@ -11,8 +11,6 @@
           @contextmenu="showContext"
           :src="pauseGifURL"
           :class="{ loaded }"
-          :width="dimensions.width"
-          :height="dimensions.height"
           loading="lazy"
           @load="loaded = true"
         />
@@ -58,6 +56,7 @@ export default defineComponent({
       const file = this.message.files?.[0];
       if (!file) return undefined;
       // nertivia cdn
+      console.log(file);
       if (file.url) return file.url;
       // google drive cdn
       return (
