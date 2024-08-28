@@ -1,9 +1,18 @@
 [
+
+	{
+		"version": "1.53.6-stable",
+		"date": "28 08 2024",
+		"title": "Server",
+		"fixes": [
+			"Make Images work"
+		]
+	},
 	
 	{
 		"version": "1.53.5-stable",
 		"date": "28 08 2024",
-		"title": "Pop-Up",
+		"title": "Server",
 		"changes": [
 			"Add CDN Server"
 		]
