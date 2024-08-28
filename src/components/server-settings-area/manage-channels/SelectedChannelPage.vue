@@ -147,7 +147,7 @@ export default defineComponent({
         image.src =
           process.env.VUE_APP_TWEMOJI_LOCATION +
           twemoji.convert.toCodePoint(this.channelIcon).replace("-fe0f", "") +
-          ".svg";
+          ".png";
       }
       return image.outerHTML;
     },
