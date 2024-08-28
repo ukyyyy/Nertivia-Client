@@ -27,7 +27,7 @@
         <div class="other-buttons">
           <a
             class="button github"
-            href="https://github.com/NertiviaChat
+            href="https://github.com/NertiviaChat"
             target="_blank"
             rel="noopener noreferrer"
           >
