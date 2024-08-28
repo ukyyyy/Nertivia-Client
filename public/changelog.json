@@ -1,6 +1,15 @@
 [
+	
 	{
-		"version": "1.53.2-stable",
+		"version": "1.53.5-stable",
+		"date": "28 08 2024",
+		"title": "Pop-Up",
+		"changes": [
+			"Add CDN Server"
+		]
+	},
+	{
+		"version": "1.53.4-stable",
 		"date": "27 08 2024",
 		"title": "Pop-Up",
 		"changes": [
