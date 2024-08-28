@@ -20,42 +20,42 @@ export interface Badge {
 export const badges: Record<number, Badge> = {
   1: {
     name: "Creator",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f451.svg",
+    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f451.png",
     color: "#ffcc4d",
   },
   2: {
     name: "Cute",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f33a.svg",
+    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f33a.png",
     color: "#f4abba",
   },
   4: {
     name: "Developer",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/2728.svg",
+    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/2728.png",
     color: "#6853b9",
   },
   8: {
     name: "Supporter",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/2764.svg",
+    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/2764.png",
     color: "#dd2e44",
   },
   16: {
     name: "Idea Queen",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f4a0.svg",
+    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f4a0.png",
     color: "#78d4ff",
   },
   32: {
     name: "Bug Catcher",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f41b.svg",
+    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f41b.png",
     color: "#e234eb",
   },
   64: {
     name: "Translator",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f4dd.svg",
+    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f4dd.png",
     color: "#1fffb4",
   },
   128: {
     name: "Contributor",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f5a5.svg",
+    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f5a5.png",
     color: "#cf24ff",
   },
 };

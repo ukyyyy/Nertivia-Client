@@ -87,7 +87,7 @@ export default defineComponent({
     },
     isFileImage(): any {
       if (!this.file) return false;
-      if (!['gif', 'png', 'jpeg', 'jpg'].includes(this.file.url.split('.').at(-1))) return false;
+      if (!['webp', 'gif', 'png', 'jpeg', 'jpg'].includes(this.file.url.split('.').at(-1))) return false;
       return true;
     },
     isVideo(): any {

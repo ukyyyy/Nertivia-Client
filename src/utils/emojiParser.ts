@@ -1,4 +1,4 @@
-import twemoji from "twemoji";
+import twemoji from "@twemoji/api";
 import { matchSorter } from "match-sorter";
 
 import emojis from "@/utils/emoji-data/emojis.json";
@@ -15,7 +15,7 @@ export const twemojiCodepoints = (emoji: string) =>
 
 /** Returns the path of the twemoji */
 export const twemojiPath = (emoji: string) =>
-  `${process.env.VUE_APP_TWEMOJI_LOCATION}${twemojiCodepoints(emoji)}.svg`;
+  `${process.env.VUE_APP_TWEMOJI_LOCATION}${twemojiCodepoints(emoji)}.png`;
 
 interface EmojiURLOptions {
   animated?: boolean;
@@ -72,7 +72,7 @@ export const emojiToShortcode = (message: string) => {
 export const replaceEmojis = (message: string) => {
   return twemoji.parse(message, function (codepoint) {
     if (!codepoint) return message;
-    return `${process.env.VUE_APP_TWEMOJI_LOCATION}${codepoint}.svg`;
+    return `${process.env.VUE_APP_TWEMOJI_LOCATION}${codepoint}.png`;
   });
 };
 

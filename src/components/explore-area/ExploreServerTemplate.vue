@@ -92,7 +92,7 @@ export default defineComponent({
     return {
       joining: false,
       hovering: false,
-      tweCrown: process.env.VUE_APP_TWEMOJI_LOCATION + "1f451.svg",
+      tweCrown: process.env.VUE_APP_TWEMOJI_LOCATION + "1f451.png",
     };
   },
   computed: {
