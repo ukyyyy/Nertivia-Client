@@ -54,10 +54,12 @@ export default defineComponent({
   },
   computed: {
     roles(): any {
-      return ServerRolesModule.bulkRolesById(
+      const roles = ServerRolesModule.bulkRolesById(
         this.serverMember.server_id,
         this.serverMember.roleIdArr
       );
+      console.log(roles, this.serverMember);
+      return roles;
     },
     member(): any {
       return UsersModule.users[this.serverMember.id];
@@ -76,15 +78,15 @@ export default defineComponent({
     },
     badge(): any {
       if (this.serverMember.type === "OWNER")
-        return ["owner", process.env.VUE_APP_TWEMOJI_LOCATION + "1f451.svg"];
+        return ["owner", process.env.VUE_APP_TWEMOJI_LOCATION + "1f451.png"];
 
       if (this.serverMember.type === "BOT")
-        return ["bot", process.env.VUE_APP_TWEMOJI_LOCATION + "1f916.svg"];
+        return ["bot", process.env.VUE_APP_TWEMOJI_LOCATION + "1f916.png"];
       const id = this.serverMember.id;
       const serverID = this.serverMember.server_id;
       const memberHasPermission = ServerMembersModule.memberHasPermission;
       if (memberHasPermission(id, serverID, permissions.ADMIN.value)) {
-        return ["admin", process.env.VUE_APP_TWEMOJI_LOCATION + "1f6e1.svg"];
+        return ["admin", process.env.VUE_APP_TWEMOJI_LOCATION + "1f6e1.png"];
       }
       return null;
     },
