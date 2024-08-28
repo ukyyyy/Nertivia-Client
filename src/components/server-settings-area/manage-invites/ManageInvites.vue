@@ -12,7 +12,7 @@
           ><!-- TODO: i18n -->
           To create a custom invite, your server must be
           <a
-            href="https://forms.gle/WHEL6avi8Hv2cPYi9"
+            href="https://forms.gle/dDCszjey74n4HCK1A"
             target="_blank"
             rel="noopener noreferrer"
             >verified</a
