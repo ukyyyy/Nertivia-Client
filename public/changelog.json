@@ -1,5 +1,14 @@
 [
 
+
+	{
+		"version": "1.53.7-stable",
+		"date": "28 08 2024",
+		"title": "Emojis",
+		"fixes": [
+			"Make Emojis work"
+		]
+	},
 	{
 		"version": "1.53.6-stable",
 		"date": "28 08 2024",
