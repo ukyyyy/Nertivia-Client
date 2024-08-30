@@ -64,27 +64,27 @@
       "more-profile-notice": "Гэта інфармацыя бачна ўсім."
     },
     "notification": {
-      "title": "Change your notification settings.",
-      "notification-sound": "Notification Sound",
-      "notification-sound-details": "Makes a cool sound to get your attention",
-      "notification-mentions-only": "Mentions/Direct Messages Only",
-      "notification-mentions-only-details": "Makes it so only mentions and direct messages will make sound and be pushed.",
-      "push-notification": "Push Notification",
-      "push-notification-details": "Get push notifications even when the app is closed."
+      "title": "Змяніце вашы налады апавяшчэнняў.",
+      "notification-sound": "Гук апавяшчэння",
+      "notification-sound-details": "Робіць файны гук, каб вы заўважылі новая паведамленне",
+      "notification-mentions-only": "Толькі згадванні/прамыя паведамленні",
+      "notification-mentions-only-details": "Гук будзе прайгравацца толькі пры вашам згадванні або атрыманні прамога паведамлення.",
+      "push-notification": "Push-Паведамленні",
+      "push-notification-details": "Атрымлівайце push-паведамленні, нават калі праграма закрыта."
     },
     "manage-emojis": {
-      "details": "Upload your own pretty emojis for free! Emojis must be 3MB or less.",
-      "supported-types": "Supported file types are: png, jpg, gif",
-      "add-emojis-button": "Add Emojis"
+      "details": "Бясплатна запампоўвайце вашы любімыя эмодзі! Яны павінны быць не больш, чым 3MB.",
+      "supported-types": "Фарматы, якія падтрымліваюцца: png, jpg, gif",
+      "add-emojis-button": "Дадаць эмодзі"
     },
     "startup-options": {
-      "title": "Desktop App Startup Options",
-      "notice": "To modify these settings, you must download the Nertivia desktop app.",
-      "open-on-startup": "Open Nertivia On Startup"
+      "title": "Налады праграмы і запуску",
+      "notice": "Каб змяняць гэтыя налады, вам трэба спампаваць стальнічную версію Nertivia.",
+      "open-on-startup": "Адкрываць Nertivia пры запуску"
     },
     "program-activity": {
-      "details": "Share programs or games you are running by adding apps below. This will replace your custom status when a program is opened and will revert back when the program is closed.",
-      "notice": "To use the program acitivty feature, you must download the Nertivia desktop app."
+      "details": "Абагульняйце праграмы і гульні, якія ў вас адкрыты, дадаўшы іх ніжэй. Гэта заменіць ваш карыстацкі статус, калі праграма адкрыта, і скасуе змену, калі вы закройце праграму.",
+      "notice": "Каб карыстацца функцыяй праграмнай актыўнасці, вы павінны спампаваць стальнічную версію Nertivia."
     },
     "manage-bots": {
       "details": "Create bot users which will allow you to use our API to create your own fancy bots.",
