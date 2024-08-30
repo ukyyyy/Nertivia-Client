@@ -93,7 +93,7 @@ export default defineComponent({
     return {
       hovering: false,
       cloning: false,
-      tweCrown: process.env.VUE_APP_TWEMOJI_LOCATION + "1f451.svg",
+      tweCrown: process.env.VUE_APP_TWEMOJI_LOCATION + "1f451.png",
       likeRequest: false,
     };
   },

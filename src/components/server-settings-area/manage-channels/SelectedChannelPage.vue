@@ -95,7 +95,7 @@ import { ChannelsModule } from "@/store/modules/channels";
 import { ServersModule } from "@/store/modules/servers";
 import { MeModule } from "@/store/modules/me";
 import Channel from "@/interfaces/Channel";
-import twemoji from "twemoji";
+import twemoji from "@twemoji/api";
 
 import { defineComponent } from "vue";
 export default defineComponent({
@@ -147,7 +147,7 @@ export default defineComponent({
         image.src =
           process.env.VUE_APP_TWEMOJI_LOCATION +
           twemoji.convert.toCodePoint(this.channelIcon).replace("-fe0f", "") +
-          ".svg";
+          ".png";
       }
       return image.outerHTML;
     },

@@ -25,6 +25,7 @@ export default defineComponent({
       return this.message.files?.[0];
     },
     url(): any {
+      if (this.file.url) return this.file.url;
       return `${process.env.VUE_APP_FETCH_PREFIX}/files/${this.file?.fileID}/${this.file?.fileName}`;
     },
   },

@@ -8,8 +8,8 @@
         If you find something missing or have any questions, email us at
 
         <a
-          href="mailto:nertivia@gmail.com?subject=Question%20About%20Your%20Policy"
-          >nertivia@gmail.com</a
+          href="mailto:support@nertivia.com?subject=Question%20About%20Your%20Policy"
+          >support@nertivia.com</a
         >.
       </p>
 

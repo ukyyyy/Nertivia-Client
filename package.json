@@ -13,6 +13,7 @@
     "@simonwep/pickr": "^1.8.0",
     "@soerenmartius/vue3-clipboard": "^0.1.2",
     "@supertiger/vue-3-virtual-scroll-list": "^1.0.8",
+    "@twemoji/api": "^15.1.0",
     "@vue/compiler-sfc": "^3.2.11",
     "base64-arraybuffer": "^0.1.4",
     "caniuse-lite": "^1.0.30001497",
@@ -35,7 +36,6 @@
     "socket.io-client": "^4.1.2",
     "style-scoped": "^0.2.2",
     "text-field-edit": "^3.1.0",
-    "twemoji": "^13.0.1",
     "vue": "^3.2.11",
     "vue-class-component": "^7.2.3",
     "vue-codemirror": "^4.0.6",
@@ -46,7 +46,7 @@
     "vue-virtual-scroller": "^2.0.0-alpha.1",
     "vuedraggable": "^4.1.0",
     "vuex": "^4.0.2",
-    "vuex-module-decorators": "^1.0.1"
+    "vuex-module-decorators": "^2.0.0"
   },
   "devDependencies": {
     "@intlify/vue-i18n-loader": "^3.0.0",

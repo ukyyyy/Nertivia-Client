@@ -16,7 +16,7 @@
           </a>
           <a
             class="button"
-            href="https://github.com/Supertigerr/nertivia-desktop-app/releases"
+            href="https://github.com/FAYSi223/Nertivia-Client/releases/download/beta-1.0.1/Nertivia.Setup.1.0.1.exe"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -27,7 +27,7 @@
         <div class="other-buttons">
           <a
             class="button github"
-            href="https://github.com/Supertigerr/"
+            href="https://github.com/NertiviaChat"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -36,7 +36,7 @@
           </a>
           <a
             class="button donate"
-            href="https://ko-fi.com/S6S243GRX"
+            href="https://ko-fi.com/faysi"
             target="_blank"
             rel="noopener noreferrer"
           >
