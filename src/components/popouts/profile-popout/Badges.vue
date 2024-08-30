@@ -62,7 +62,7 @@ export default defineComponent({
   }
   .tooltip {
     position: absolute;
-    bottom: -30px;
+    bottom: -35px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #2c2f33;
@@ -76,11 +76,17 @@ export default defineComponent({
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
     pointer-events: none;
+    max-width: 200px; 
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
   &:hover .tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(-5px);
+    white-space: normal; 
+    max-height: 100px; 
+    overflow-y: auto; 
   }
 }
 </style>
