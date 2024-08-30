@@ -1,7 +1,7 @@
 export default {
   en: {
     name: "English / Default",
-    unicode: "🇬🇧",
+    unicode: "🇺🇸",
     translators: ["Pancake", "Toby"],
   },
   de: {
