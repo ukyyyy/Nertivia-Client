@@ -10,10 +10,12 @@
         :title="item.name"
       >
         <img :src="item.iconURL" alt="" />
+        <div class="badge-name">{{ item.name }}</div>
       </div>
     </div>
   </div>
 </template>
+
 <script lang="ts">
 import { Badge } from "@/constants/badges";
 import { PropType } from "vue";
@@ -28,6 +30,7 @@ export default defineComponent({
   },
 });
 </script>
+
 <style scoped lang="scss">
 .badges {
   flex-shrink: 0;
@@ -46,6 +49,7 @@ export default defineComponent({
 }
 .badge {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
@@ -53,9 +57,26 @@ export default defineComponent({
   padding: 5px;
   height: 23px;
   width: 23px;
+  position: relative;
   img {
     height: 15px;
     width: 15px;
+  }
+  .badge-name {
+    opacity: 0;
+    visibility: hidden;
+    font-size: 10px;
+    margin-top: 5px;
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    transition: opacity 0.3s, visibility 0.3s;
+  }
+  &:hover .badge-name {
+    opacity: 1;
+    visibility: visible;
   }
 }
 </style>
