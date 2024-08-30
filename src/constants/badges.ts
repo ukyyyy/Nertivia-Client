@@ -8,6 +8,7 @@ export const IDEA_QUEEN = 16;
 export const BUG_CATCHER = 32;
 export const TRANSLATOR = 64;
 export const CONTRIBUTOR = 128;
+export const EMPLOYEES = 256;
 // next value = 256
 
 export interface Badge {
@@ -57,6 +58,11 @@ export const badges: Record<number, Badge> = {
     name: "Contributor",
     iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f5a5.png",
     color: "#cf24ff",
+  },
+   256: {
+    name: "Employees",
+    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/2728.png",
+    color: "#2596be",
   },
 };
 
