@@ -5,7 +5,7 @@
         <div class="material-icons">info</div>
         Enable un-finished or experimental features.
       </div>
-      <div style="opacity: 0.6">No WIP Features available right now.</div>
+      <div style="opacity: 0.6">Updated at 30.08.2024/15.16</div>
       <button @click="openBadgePopup" class="show-badges-btn">
         Show All Badges
       </button>
