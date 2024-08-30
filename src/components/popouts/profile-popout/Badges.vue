@@ -7,10 +7,9 @@
         v-for="item in badges"
         :key="item.name"
         :style="{ borderColor: item.color }"
-        :title="item.name"
       >
         <img :src="item.iconURL" alt="" />
-        <div class="badge-name">{{ item.name }}</div>
+        <div class="tooltip">{{ item.name }}</div>
       </div>
     </div>
   </div>
@@ -49,7 +48,6 @@ export default defineComponent({
 }
 .badge {
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
@@ -62,21 +60,27 @@ export default defineComponent({
     height: 15px;
     width: 15px;
   }
-  .badge-name {
-    opacity: 0;
-    visibility: hidden;
-    font-size: 10px;
-    margin-top: 5px;
+  .tooltip {
     position: absolute;
-    bottom: -20px;
+    bottom: -30px;
     left: 50%;
     transform: translateX(-50%);
+    background-color: #2c2f33;
+    color: #fff;
+    padding: 5px 8px;
+    border-radius: 4px;
     white-space: nowrap;
-    transition: opacity 0.3s, visibility 0.3s;
+    font-size: 12px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
+    pointer-events: none;
   }
-  &:hover .badge-name {
+  &:hover .tooltip {
     opacity: 1;
     visibility: visible;
+    transform: translateX(-50%) translateY(-5px);
   }
 }
 </style>
