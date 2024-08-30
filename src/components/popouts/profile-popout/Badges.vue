@@ -62,13 +62,13 @@ export default defineComponent({
   }
   .tooltip {
     position: absolute;
-    bottom: -35px;
+    bottom: -40px;
     left: 50%;
     transform: translateX(-50%);
     background-color: #2c2f33;
     color: #fff;
-    padding: 5px 8px;
-    border-radius: 4px;
+    padding: 8px 12px;
+    border-radius: 6px;
     white-space: nowrap;
     font-size: 12px;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
@@ -76,17 +76,13 @@ export default defineComponent({
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
     pointer-events: none;
-    max-width: 200px; 
-    overflow: hidden;
-    text-overflow: ellipsis;
+    max-width: 300px; /* Setzt die maximale Breite der Tooltip-Box */
+    width: auto;
   }
   &:hover .tooltip {
     opacity: 1;
     visibility: visible;
     transform: translateX(-50%) translateY(-5px);
-    white-space: normal; 
-    max-height: 100px; 
-    overflow-y: auto; 
   }
 }
 </style>
