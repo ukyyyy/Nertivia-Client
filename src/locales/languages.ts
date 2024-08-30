@@ -68,5 +68,10 @@ export default {
     name: "Arabic / العربية",
     unicode: "🇸🇦",
     translators: ["Devx"],
+  },
+  be: {
+    name: "Belarusian / Беларуская",
+    unicode: "🇧🇾",
+    translators: ["lenify"],
   }
 };
