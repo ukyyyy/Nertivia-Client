@@ -76,8 +76,8 @@ export default defineComponent({
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
     pointer-events: none;
-    max-width: 300px; /* Setzt die maximale Breite der Tooltip-Box */
-    width: auto;
+    width: max-content; /* Passt die Breite an den Inhalt an */
+    max-width: none; /* Entfernt die maximale Breite, um Scrollen zu vermeiden */
   }
   &:hover .tooltip {
     opacity: 1;
