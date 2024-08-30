@@ -9,7 +9,7 @@
         :style="{ borderColor: item.color }"
       >
         <img :src="item.iconURL" alt="" />
-        <div class="tooltip">{{ item.name }}</div>
+        <div class="badge-name">{{ item.name }}</div>
       </div>
     </div>
   </div>
@@ -48,6 +48,7 @@ export default defineComponent({
 }
 .badge {
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
@@ -60,29 +61,15 @@ export default defineComponent({
     height: 15px;
     width: 15px;
   }
-  .tooltip {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: #2c2f33;
-    color: #fff;
-    padding: 8px 12px;
-    border-radius: 6px;
-    white-space: nowrap;
+  .badge-name {
+    margin-top: 5px;
     font-size: 12px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    color: #fff;
     opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
-    pointer-events: none;
-    width: max-content; /* Passt die Breite an den Inhalt an */
-    max-width: none; /* Entfernt die maximale Breite, um Scrollen zu vermeiden */
+    transition: opacity 0.2s ease;
   }
-  &:hover .tooltip {
+  &:hover .badge-name {
     opacity: 1;
-    visibility: visible;
-    transform: translateX(-50%) translateY(-5px);
   }
 }
 </style>
