@@ -1,5 +1,4 @@
 <template>
-  <!-- Dont add translations for this file. -->
   <div class="wip-features">
     <div class="box">
       <div class="description">
@@ -7,27 +6,33 @@
         Enable un-finished or experimental features.
       </div>
       <div style="opacity: 0.6">No WIP Features available right now.</div>
-      <!-- <CheckBox
-        name="Welcome Popout"
-        class="check-box"
-        description="Show a welcome popout when you first create an account."
-        v-model="welcomePopout"
-      /> -->
+      <button @click="openBadgePopup" class="show-badges-btn">
+        Show All Badges
+      </button>
     </div>
+    
+    <!-- Badges Popup Component -->
+    <BadgePopup :isOpen="isBadgePopupOpen" @update:isOpen="isBadgePopupOpen = $event" />
   </div>
 </template>
 
 <script lang="ts">
-import CheckBox from "@/components/CheckBox.vue";
-
 import { defineComponent } from "vue";
+import BadgePopup from "./BadgePopup.vue"; // Angepasster Pfad
+
 export default defineComponent({
   name: "WIPFeatures",
-  // components: { CheckBox },
+  components: { BadgePopup },
   data() {
     return {
       welcomePopout: localStorage["welcomePopout_wip"] === "true",
+      isBadgePopupOpen: false,
     };
+  },
+  methods: {
+    openBadgePopup() {
+      this.isBadgePopupOpen = true;
+    },
   },
   watch: {
     welcomePopout() {
@@ -42,23 +47,39 @@ export default defineComponent({
   display: flex;
   flex-direction: column;
 }
+
 .description {
   display: flex;
   align-items: center;
   align-content: center;
   .material-icons {
     margin-right: 5px;
+    color: #007bff; // Hauptfarbe anpassen
   }
   margin-bottom: 10px;
 }
+
 .title {
   margin-bottom: 5px;
 }
+
 .box {
   padding: 10px;
   align-self: flex-start;
 }
-.check-box {
-  margin-bottom: 10px;
+
+.show-badges-btn {
+  margin-top: 10px;
+  padding: 5px 10px;
+  background-color: #007bff; // Hauptfarbe anpassen
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.show-badges-btn:hover {
+  background-color: #0056b3; // Dunklere Farbe für Hover-Effekt
 }
 </style>
