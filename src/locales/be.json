@@ -79,85 +79,85 @@
     },
     "startup-options": {
       "title": "Налады праграмы і запуску",
-      "notice": "Каб змяняць гэтыя налады, вам трэба спампаваць стальнічную версію Nertivia.",
+      "notice": "Каб змяняць гэтыя налады, вам трэба спампаваць камп'ютарную версію Nertivia.",
       "open-on-startup": "Адкрываць Nertivia пры запуску"
     },
     "program-activity": {
       "details": "Абагульняйце праграмы і гульні, якія ў вас адкрыты, дадаўшы іх ніжэй. Гэта заменіць ваш карыстацкі статус, калі праграма адкрыта, і скасуе змену, калі вы закройце праграму.",
-      "notice": "Каб карыстацца функцыяй праграмнай актыўнасці, вы павінны спампаваць стальнічную версію Nertivia."
+      "notice": "Каб карыстацца функцыяй праграмнай актыўнасці, вы павінны спампаваць камп'ютарую версію Nertivia."
     },
     "manage-bots": {
-      "details": "Create bot users which will allow you to use our API to create your own fancy bots.",
-      "command-notice": "Add bot commands to easily let users know which commands exist for your bot",
-      "create-bot-button": "Create Bot",
-      "add-command-button": "Add Command",
-      "edit-bot": "Edit Bot",
-      "edit-commands": "Edit Commands",
-      "create-invite-link": "Create Invite Link",
-      "copy-invite-url": "Copy Invite URL",
-      "manage-token": "Manage Token",
-      "show-token": "Show Token",
-      "copy-token": "Copy Token",
-      "reset-token": "Reset Token",
-      "delete-bot": "Delete Bot"
+      "details": "Стварыце карыстальнікаў-батоў, якія дазволяць вам ствараць крутых батоў з дапамогай нашага API.",
+      "command-notice": "Дадавайце каманды да батоў, каб карыстальнікі ведалі, што можа рабіць ваш бот",
+      "create-bot-button": "Стварыць бота",
+      "add-command-button": "Дадаць каманду",
+      "edit-bot": "Рэдагаваць бота",
+      "edit-commands": "Рэдагаваць каманды",
+      "create-invite-link": "Стварыць спасылку запрашэння",
+      "copy-invite-url": "Скапіяваць запрашэнне",
+      "manage-token": "Кіраванне токенам",
+      "show-token": "Паказаць токен",
+      "copy-token": "Скапіяваць токен",
+      "reset-token": "Скінуць токен",
+      "delete-bot": "Выдаліць бота"
     },
     "delete-account": {
-      "notice": "You are about to delete your account",
-      "what-gets-deleted": "What will get deleted",
-      "what-wont-delete": "What won't get deleted",
-      "messages-sent": "Your messages sent to public servers",
-      "requirements": "Requirements",
-      "delete-leave-server": "Leave/Delete all servers",
-      "delete-bots": "Delete all bots",
-      "delete-account-button": "Delete My Account"
+      "notice": "Вы збірайцеся выдаліць ваш уліковы запіс",
+      "what-gets-deleted": "Што будзе выдалена",
+      "what-wont-delete": "Што не будзе выдалена",
+      "messages-sent": "Вашы паведамленні ў публічных серверах",
+      "requirements": "Патрабаванні",
+      "delete-leave-server": "Выдаліць або выйсці са ўсіх сервераў",
+      "delete-bots": "Выдаліць ўсіх батоў",
+      "delete-account-button": "Выдаліць уліковы запіс"
     },
     "language": {
-      "details": "Reload may be required after changing language. Contribute by submitting a PR in the GitHub repo.",
-      "translators": "Translators"
+      "details": "Змена мовы можа патрабаваць перазагрузку. Паўдзельнічайце, стварыўшы запыт у рэпазіторыі GitHub.",
+      "translators": "Перакладчыкі"
     },
     "interface": {
-      "description": "Change the appearance of Nertivia.",
-      "colors": "Colors",
-      "time-format": "Time Format",
-      "default-theme": "Default Theme",
-      "amoled-dark": "AMOLED Dark",
-      "halloween-2020": "Halloween 2020",
-      "predefined-themes": "Pre-defined Themes",
-      "custom-css": "Custom CSS",
-      "general": "General",
-      "navigation-bar": "Navigation Bar"
+      "description": "Змяніце выгляд Nertivia.",
+      "colors": "Колеры",
+      "time-format": "Фармат часу",
+      "default-theme": "Стандартная тэма",
+      "amoled-dark": "Цёмны AMOLED",
+      "halloween-2020": "Хэлаўін 2020",
+      "predefined-themes": "Прадвызначаныя тэмы",
+      "custom-css": "Уласны CSS",
+      "general": "Агульныя",
+      "navigation-bar": "Панэль навігацыі"
     },
     "wip-features": {
-      "title": "Enable unfinished or experimental features.",
-      "none-available": "No WIP Features available right now."
+      "title": "Уключыце назавершаныя або эксперыментальныя функцыі.",
+      "none-available": "Зараз няма даступных тэставых функцый."
     }
   },
   "server-settings": {
     "permissions": {
-      "permissions": "Permissions",
+      "permissions": "Дазволы",
       "admin": {
-        "name": "Admin",
-        "info": "Enables ALL permissions"
+        "name": "Адмін",
+        "info": "Уключае ЎСЕ дазволы"
       },
       "send-messages": {
-        "name": "Send Messages",
-        "info": "Send messages to server channels"
+        "name": "Адпраўленне паведамленняў",
+        "info": "Адпраўляць паведамленні ў каналах сервера"
       },
       "manage-roles": {
-        "name": "Manage Roles",
-        "info": "Update or delete roles"
+        "name": "Кіраванне ролямі",
+        "info": "Абнаўляць і выдаляць ролі"
       },
       "manage-channels": {
-        "name": "Manage Channels",
-        "info": "Update or delete channels"
+        "name": "Кіраванне каналамі",
+        "info": "Абнаўляць і выдаляць каналы"
       },
       "kick-user": {
-        "name": "Kick",
-        "info": "Kick a user"
+        "name": "Выган",
+        "info": "Выганяць карыстальнікаў"
       },
       "ban-user": {
-        "name": "Ban",
-        "info": "Kick & restrict a user from joining"
+        "name": "Блакіроўка",
+        "info": "Выганяць карыстальнікаў і забараняць ім далучацца зноў"
       }
     },
     "tab-names": {
