@@ -8,11 +8,12 @@ Check out nertivia at https://nertivia.net
 
 1. Fork this repo.
 2. Clone the forked github repo
-3. run `npm i --legacy-peer-deps` inside the folder.
-4. Rename `example.env` to `.env`
-5. Run the server by `npm run serve`
-6. Navigate to http://local.nertivia.net:8080 and start your development
-7. Submit a PR :)
+3. run `nvm install 16` and `nvm use 16`
+4. run `npm i --legacy-peer-deps` inside the folder.
+5. Rename `example.env` to `.env`
+6. Run the server by `npm run serve`
+7. Navigate to http://local.nertivia.net:8080 and start your development
+8. Submit a PR :)
 
 # Screenshots
 
