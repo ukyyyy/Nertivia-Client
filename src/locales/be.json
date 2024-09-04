@@ -212,110 +212,110 @@
     "manage-invites": {
       "notice": "Толькі адміны могуць праглядваць запрашэнні.",
       "create-invites": "Стварыць запрашэнні",
-      "custom-invite": "Custom Invite",
-      "save-custom-link": "Save Custom Link",
-      "create-invite": "Create Invite",
-      "link": "Link",
-      "creator": "Creator",
-      "uses": "Uses"
+      "custom-invite": "Карыстальніцкае запрашэнне",
+      "save-custom-link": "Захаваць карыстальніцкае запрашэнне",
+      "create-invite": "Стварыць запрашэнне",
+      "link": "Спасылка",
+      "creator": "Стваральнік",
+      "uses": "Выкарыстанні"
     },
     "manage-users": {
-      "search-user": "Search User"
+      "search-user": "Пошук карыстальніка"
     },
     "delete-server": {
-      "type-server-name-to-confirm": "Type server name to confirm",
-      "deleting": "Deleting..."
+      "type-server-name-to-confirm": "Напішыце назву сервера, каб працягнуць",
+      "deleting": "Выдаленне..."
     },
     "notifications": {
-      "description": "Change notification settings.",
-      "notice": "These settings will only apply to you and won't affect others.",
-      "enable-notifications": "Enable Notifications",
-      "mute-sound": "Mute Sound",
-      "disable-notifications": "Disable Notifications"
+      "description": "Змяніць гук апавяшчэння.",
+      "notice": "Гэтыя налады будуць прыменены толькі ў вас і не закрануць іншых.",
+      "enable-notifications": "Уключыць апавяшчэнні",
+      "mute-sound": "Выключыць гук",
+      "disable-notifications": "Адключыць апавяшчэнні"
     }
   },
   "typing-status": {
-    "is-typing": "{0} is typing...",
-    "two-are-typing": "{0} and {1} are typing...",
-    "three-are-typing": "{0}, {1} and {2} are typing...",
-    "more-than-three": "{0} people are typing..."
+    "is-typing": "{0} піша...",
+    "two-are-typing": "{0} і {1} пішуць...",
+    "three-are-typing": "{0}, {1} і {2} пішуць...",
+    "more-than-three": "{0} удзельніка(ў) пішуць..."
   },
   "dm-tab": {
-    "friends": "Friends",
-    "recents": "Recents",
-    "saved-notes": "Saved Notes",
-    "add-friend": "Add Friend"
+    "friends": "Сябры",
+    "recents": "Нядаўнія",
+    "saved-notes": "Нататкі",
+    "add-friend": "Дадаць сябра"
   },
   "dashboard-tab": {
-    "profile": "Profile",
-    "notifications": "Notifications",
-    "click-to-add-custom-status": "Click to add custom status",
-    "caught-up": "All Caught Up!",
-    "direct-messages": "Direct Messages",
-    "servers": "Servers",
-    "explore": "Explore",
-    "dashboard": "Dashboard"
+    "profile": "Профіль",
+    "notifications": "Апавяшчэнні",
+    "click-to-add-custom-status": "Націсніце, каб дадаць уласны статус",
+    "caught-up": "Усё прачытана!",
+    "direct-messages": "Прамыя паведамленні",
+    "servers": "Серверы",
+    "explore": "Даследаванне",
+    "dashboard": "Панэль кіравання"
   },
   "add-friend-popout": {
-    "notice": "Add a friend by typing their username and tag.",
-    "adding": "Adding..."
+    "notice": "Дадайце сяброў, напісаўшы іх імя карыстальніка і тэг.",
+    "adding": "Дадаванне..."
   },
   "add-server-popout": {
-    "title": "Add Server",
-    "join-server-notice": "Join a server by entering in an invite code.",
-    "create-server-notice": "Create your own server. Start by naming your server.",
+    "title": "Дадаць сервер",
+    "join-server-notice": "Далучыцеся да сервера, увёўшы яго код запрашэння.",
+    "create-server-notice": "Стварыце свой сервер. Для пачатку, дайце яму назву.",
     "tabs": {
-      "join": "Join",
-      "create": "Create"
+      "join": "Далучыцца",
+      "create": "Стварыць"
     }
   },
   "presence": {
-    "offline": "Offline",
-    "online": "Online",
-    "away": "Away",
-    "busy": "Busy",
-    "looking-to-play": "Looking To Play"
+    "offline": "Па-за сеткай",
+    "online": "У сетцы",
+    "away": "Неактыўны",
+    "busy": "Не турбаваць",
+    "looking-to-play": "У пошуках гульні"
   },
   "right-drawer": {
-    "server-members": "Members ({0})",
-    "server-offline-members": "Offline ({0})"
+    "server-members": "Удзельнікі ({0})",
+    "server-offline-members": "Не ў сетцы ({0})"
   },
   "profile-popout": {
-    "common-friends": "Common Friends",
-    "badges": "Badges",
-    "joined-at": "Joined",
-    "suspended": "Suspended",
-    "remove-friend": "Remove Friend",
-    "accept-request": "Accept Request",
-    "cancel-request": "Cancel Request",
-    "add-friend": "Add Friend",
-    "send-message": "Send Message",
-    "common-servers": "Common Servers"
+    "common-friends": "Агульныя сябры",
+    "badges": "Значкі",
+    "joined-at": "Далучыліся",
+    "suspended": "Прыпынены",
+    "remove-friend": "Выдаліць з сяброў",
+    "accept-request": "Прыняць",
+    "cancel-request": "Скасаваць",
+    "add-friend": "Дадаць у сябры",
+    "send-message": "Адправіць паведамленне",
+    "common-servers": "Агульныя серверы"
   },
   "connection": {
-    "loading": "Loading...",
-    "ready": "Ready!",
-    "authenticating": "Authenticating..."
+    "loading": "Загрузка...",
+    "ready": "Гатова!",
+    "authenticating": "Аунтэнтыфікацыя..."
   },
   "navbar": {
-    "update": "Update",
-    "update-available": "Update Available"
+    "update": "Абнавіць",
+    "update-available": "Даступна абнаўленне"
   },
   "generic": {
-    "copy": "Copy",
-    "select": "Select",
-    "delete": "Delete",
-    "copied": "Copied!",
-    "user": "User"
+    "copy": "Скапіяваць",
+    "select": "Выбраць",
+    "delete": "Выдаліць",
+    "copied": "Скапіравана!",
+    "user": "Карыстальнік"
   },
   "messages": {
-    "left": "left the server",
-    "kicked": "has been kicked",
-    "banned": "has been banned",
-    "joined": "joined the server!"
+    "left": "выйшаў з сервера",
+    "kicked": "быў выгнаны",
+    "banned": "быў заблакіраваны",
+    "joined": "далучыўся да сервера!"
   },
-  "could-not-connect-to-server": "Could not connect to server.",
+  "could-not-connect-to-server": "Не атрымалася злучыцца з серверам.",
   "chat-area": {
-    "rate-limit-mode": "Rate Limit Mode"
+    "rate-limit-mode": "Рэжым абмежавання адпраўкі паведамленняў"
   }
 }
