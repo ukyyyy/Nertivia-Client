@@ -1,0 +1,321 @@
+{
+  "save-changes": "Захаваць змены",
+  "saving": "Захоўваем...",
+  "back": "Назад",
+  "are-you-sure": "Вы ўпэўнены?",
+  "copy-id-button": "Скапіяваць ID",
+  "time": {
+    "today-at": "Сёння ў {0}",
+    "yesterday-at": "Учора ў {0}"
+  },
+  "message-area": {
+    "no-message-perm": "У вас няма дазволу размаўляць у гэты канале.",
+    "not-connected-server": "Не злучаны",
+    "attach-message": "Далучыць паведамленне",
+    "type-message": "Напішыце ваша паведамленне",
+    "back-to-bottom": "Перайсці да нізу",
+    "new-messages": "Новыя паведамленні"
+  },
+  "upload-dialog": {
+    "compress": "Сціснуць",
+    "upload-to": "Запампаваць"
+  },
+  "user-context": {
+    "view-profile": "Праглядзець профіль",
+    "edit-roles": "Рэдагаваць ролі",
+    "kick": "Выгнаць",
+    "ban": "Заблакіраваць",
+    "copy-user-tag": "Скапіяваць Імя карыстальніка:Тэг"
+  },
+  "message-context": {
+    "quote": "Цытатаваць",
+    "edit": "Адрэдагаваць"
+  },
+  "server-context": {
+    "mark-as-read": "Пазначыць прачытанымі",
+    "server-settings": "Налады сервера",
+    "leave-server": "Выйсці з сервера"
+  },
+  "channel-context": {
+    "mute-channel": "Адключыць гук канала",
+    "unmute-channel": "Уключыць гук канала"
+  },
+  "settings": {
+    "tab-names": {
+      "account": "Уліковы запіс",
+      "notification": "Апавяшчэнні",
+      "manage-emojis": "Кіраванне эмодзі",
+      "call-options": "Налады выкліку",
+      "startup-options": "Налады запуска",
+      "program-activity": "Актыўнасць праграм",
+      "manage-bots": "Кіраванне ботамі",
+      "interface": "Інтэрфейс",
+      "language": "Мова",
+      "delete-account": "Выдаліць уліковы запіс",
+      "changelog": "Спіс змен",
+      "wip-features": "Тэставыя функцыі"
+    },
+    "account": {
+      "title": "Рэдагаванне профілю",
+      "change-password": "Змяніць пароль",
+      "relink-google-drive": "Далучыць Google Дыск яшчэ раз",
+      "link-google-drive": "Далучыць Google Дыск",
+      "more-profile": "Больш інфармацыі",
+      "more-profile-notice": "Гэта інфармацыя бачна ўсім."
+    },
+    "notification": {
+      "title": "Змяніце вашы налады апавяшчэнняў.",
+      "notification-sound": "Гук апавяшчэння",
+      "notification-sound-details": "Робіць файны гук, каб вы заўважылі новая паведамленне",
+      "notification-mentions-only": "Толькі згадванні/прамыя паведамленні",
+      "notification-mentions-only-details": "Гук будзе прайгравацца толькі пры вашам згадванні або атрыманні прамога паведамлення.",
+      "push-notification": "Push-Паведамленні",
+      "push-notification-details": "Атрымлівайце push-паведамленні, нават калі праграма закрыта."
+    },
+    "manage-emojis": {
+      "details": "Бясплатна запампоўвайце вашы любімыя эмодзі! Яны павінны быць не больш, чым 3MB.",
+      "supported-types": "Фарматы, якія падтрымліваюцца: png, jpg, gif",
+      "add-emojis-button": "Дадаць эмодзі"
+    },
+    "startup-options": {
+      "title": "Налады праграмы і запуску",
+      "notice": "Каб змяняць гэтыя налады, вам трэба спампаваць версію Nertivia для ПК.",
+      "open-on-startup": "Адкрываць Nertivia пры запуску"
+    },
+    "program-activity": {
+      "details": "Абагульняйце праграмы і гульні, якія ў вас адкрыты, дадаўшы іх ніжэй. Гэта заменіць ваш карыстацкі статус, калі праграма адкрыта, і скасуе змену, калі вы закройце праграму.",
+      "notice": "Каб карыстацца функцыяй праграмнай актыўнасці, вы павінны спампаваць версію Nertivia для ПК."
+    },
+    "manage-bots": {
+      "details": "Стварыце карыстальнікаў-батоў, якія дазволяць вам ствараць крутых батоў з дапамогай нашага API.",
+      "command-notice": "Дадавайце каманды да батоў, каб карыстальнікі ведалі, што можа рабіць ваш бот",
+      "create-bot-button": "Стварыць бота",
+      "add-command-button": "Дадаць каманду",
+      "edit-bot": "Рэдагаваць бота",
+      "edit-commands": "Рэдагаваць каманды",
+      "create-invite-link": "Стварыць спасылку запрашэння",
+      "copy-invite-url": "Скапіяваць запрашэнне",
+      "manage-token": "Кіраванне токенам",
+      "show-token": "Паказаць токен",
+      "copy-token": "Скапіяваць токен",
+      "reset-token": "Скінуць токен",
+      "delete-bot": "Выдаліць бота"
+    },
+    "delete-account": {
+      "notice": "Вы збірайцеся выдаліць ваш уліковы запіс",
+      "what-gets-deleted": "Што будзе выдалена",
+      "what-wont-delete": "Што не будзе выдалена",
+      "messages-sent": "Вашы паведамленні ў публічных серверах",
+      "requirements": "Патрабаванні",
+      "delete-leave-server": "Выдаліць або выйсці са ўсіх сервераў",
+      "delete-bots": "Выдаліць ўсіх батоў",
+      "delete-account-button": "Выдаліць уліковы запіс"
+    },
+    "language": {
+      "details": "Змена мовы можа патрабаваць перазагрузку. Паўдзельнічайце, стварыўшы запыт у рэпазіторыі GitHub.",
+      "translators": "Перакладчыкі"
+    },
+    "interface": {
+      "description": "Змяніце выгляд Nertivia.",
+      "colors": "Колеры",
+      "time-format": "Фармат часу",
+      "default-theme": "Стандартная тэма",
+      "amoled-dark": "Цёмны AMOLED",
+      "halloween-2020": "Хэлаўін 2020",
+      "predefined-themes": "Прадвызначаныя тэмы",
+      "custom-css": "Уласны CSS",
+      "general": "Агульныя",
+      "navigation-bar": "Панэль навігацыі"
+    },
+    "wip-features": {
+      "title": "Уключыце назавершаныя або эксперыментальныя функцыі.",
+      "none-available": "Зараз няма даступных тэставых функцый."
+    }
+  },
+  "server-settings": {
+    "permissions": {
+      "permissions": "Дазволы",
+      "admin": {
+        "name": "Адмін",
+        "info": "Уключае ЎСЕ дазволы"
+      },
+      "send-messages": {
+        "name": "Адпраўленне паведамленняў",
+        "info": "Адпраўляць паведамленні ў каналах сервера"
+      },
+      "manage-roles": {
+        "name": "Кіраванне ролямі",
+        "info": "Абнаўляць і выдаляць ролі"
+      },
+      "manage-channels": {
+        "name": "Кіраванне каналамі",
+        "info": "Абнаўляць і выдаляць каналы"
+      },
+      "kick-user": {
+        "name": "Выган",
+        "info": "Выганяць карыстальнікаў"
+      },
+      "ban-user": {
+        "name": "Блакіроўка",
+        "info": "Выганяць карыстальнікаў і забараняць ім далучацца зноў"
+      }
+    },
+    "tab-names": {
+      "general": "Агульныя",
+      "manage-channels": "Кіраванне каналамі",
+      "manage-roles": "Кіраванне ролямі",
+      "manage-invites": "Кіраванне запрашэннямі",
+      "server-visibility": "Бачнасць сервера",
+      "manage-emojis": "Кіраванне эмодзі",
+      "manage-notification": "Кіраванне апавяшчэннямі",
+      "banned-users": "Заблакіраваныя карыстальнікі",
+      "manage-users": "Кіраванне карыстальнікамі",
+      "delete-server": "Выдаліць сервер"
+    },
+    "manage-roles": {
+      "manage-your-roles": "Кіруйце ролямі вашага сервера.",
+      "default-role": "Стандартная роля",
+      "bot-role": "Роля для батоў",
+      "create-role": "Стварыць новую ролю",
+      "notice-bot": "Гэта роля ня можа быць выдалена або дадзена іншаму карыстальніку, таму што яна створана для бота. Выдаліце бота, каб выдаліць ролю.",
+      "notice-default": "Гэта роль ня можа быць выдалена, таму што гэта стандартная роля, якая выдаецца кожнаму удзельніку.",
+      "pick-role-color": "Выбраць колер ролі",
+      "role-name": "Назва ролі",
+      "settings": "Налады",
+      "delete-role": "Выдаліць ролю",
+      "deleting-role": "Выдаленне ролі...",
+      "hide-role": "Схаваць роль"
+    },
+    "general": {
+      "general-server-settings": "Агульныя налады сервера"
+    },
+    "manage-channels": {
+      "manage-your-channels": "Кіруйце каналамі вашага сервера.",
+      "delete-channel": "Выдаліць канал",
+      "deleting-channel": "Выдаленне канала...",
+      "channel-name": "Назва канала",
+      "default-channel-notice": "Гэта стандартны канал. Вы можаце наладзіць яго ў агульных наладах сервера. Стандартны канал нельга выдаліць.",
+      "create-new-channel": "Стварыць",
+      "permission": {
+        "send-message": "Адпаўляць паведамленні"
+      },
+      "rate-limit-seconds": "Абмежаванне па адпраўке (секунды)",
+      "text-channel": "Тэкставы канал",
+      "category-channel": "Катэгорыю",
+      "html-channel": "Канал HTML (WIP)"
+    },
+    "banned-users": {
+      "notice": "Тут вы можаце разблакіраваць карыстальнікаў",
+      "unbanning": "Разблакіроўка...",
+      "unban": "Разблакіраваць"
+    },
+    "manage-invites": {
+      "notice": "Толькі адміны могуць праглядваць запрашэнні.",
+      "create-invites": "Стварыць запрашэнні",
+      "custom-invite": "Карыстальніцкае запрашэнне",
+      "save-custom-link": "Захаваць карыстальніцкае запрашэнне",
+      "create-invite": "Стварыць запрашэнне",
+      "link": "Спасылка",
+      "creator": "Стваральнік",
+      "uses": "Выкарыстанні"
+    },
+    "manage-users": {
+      "search-user": "Пошук карыстальніка"
+    },
+    "delete-server": {
+      "type-server-name-to-confirm": "Напішыце назву сервера, каб працягнуць",
+      "deleting": "Выдаленне..."
+    },
+    "notifications": {
+      "description": "Змяніць гук апавяшчэння.",
+      "notice": "Гэтыя налады будуць прыменены толькі ў вас і не закрануць іншых.",
+      "enable-notifications": "Уключыць апавяшчэнні",
+      "mute-sound": "Выключыць гук",
+      "disable-notifications": "Адключыць апавяшчэнні"
+    }
+  },
+  "typing-status": {
+    "is-typing": "{0} піша...",
+    "two-are-typing": "{0} і {1} пішуць...",
+    "three-are-typing": "{0}, {1} і {2} пішуць...",
+    "more-than-three": "{0} удзельніка(ў) пішуць..."
+  },
+  "dm-tab": {
+    "friends": "Сябры",
+    "recents": "Нядаўнія",
+    "saved-notes": "Нататкі",
+    "add-friend": "Дадаць сябра"
+  },
+  "dashboard-tab": {
+    "profile": "Профіль",
+    "notifications": "Апавяшчэнні",
+    "click-to-add-custom-status": "Націсніце, каб дадаць уласны статус",
+    "caught-up": "Усё прачытана!",
+    "direct-messages": "Прамыя паведамленні",
+    "servers": "Серверы",
+    "explore": "Даследаванне",
+    "dashboard": "Панэль кіравання"
+  },
+  "add-friend-popout": {
+    "notice": "Дадайце сяброў, напісаўшы іх імя карыстальніка і тэг.",
+    "adding": "Дадаванне..."
+  },
+  "add-server-popout": {
+    "title": "Дадаць сервер",
+    "join-server-notice": "Далучыцеся да сервера, увёўшы яго код запрашэння.",
+    "create-server-notice": "Стварыце свой сервер. Для пачатку, дайце яму назву.",
+    "tabs": {
+      "join": "Далучыцца",
+      "create": "Стварыць"
+    }
+  },
+  "presence": {
+    "offline": "Па-за сеткай",
+    "online": "У сетцы",
+    "away": "Неактыўны",
+    "busy": "Не турбаваць",
+    "looking-to-play": "У пошуках гульні"
+  },
+  "right-drawer": {
+    "server-members": "Удзельнікі ({0})",
+    "server-offline-members": "Не ў сетцы ({0})"
+  },
+  "profile-popout": {
+    "common-friends": "Агульныя сябры",
+    "badges": "Значкі",
+    "joined-at": "Далучыліся",
+    "suspended": "Прыпынены",
+    "remove-friend": "Выдаліць з сяброў",
+    "accept-request": "Прыняць",
+    "cancel-request": "Скасаваць",
+    "add-friend": "Дадаць у сябры",
+    "send-message": "Адправіць паведамленне",
+    "common-servers": "Агульныя серверы"
+  },
+  "connection": {
+    "loading": "Загрузка...",
+    "ready": "Гатова!",
+    "authenticating": "Аунтэнтыфікацыя..."
+  },
+  "navbar": {
+    "update": "Абнавіць",
+    "update-available": "Даступна абнаўленне"
+  },
+  "generic": {
+    "copy": "Скапіяваць",
+    "select": "Выбраць",
+    "delete": "Выдаліць",
+    "copied": "Скапіравана!",
+    "user": "Карыстальнік"
+  },
+  "messages": {
+    "left": "выйшаў з сервера",
+    "kicked": "быў выгнаны",
+    "banned": "быў заблакіраваны",
+    "joined": "далучыўся да сервера!"
+  },
+  "could-not-connect-to-server": "Не атрымалася злучыцца з серверам.",
+  "chat-area": {
+    "rate-limit-mode": "Рэжым абмежавання адпраўкі паведамленняў"
+  }
+}

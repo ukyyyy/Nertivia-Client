@@ -1,7 +1,7 @@
 export default {
   en: {
     name: "English / Default",
-    unicode: "🇬🇧",
+    unicode: "🇺🇸",
     translators: ["Pancake", "Toby"],
   },
   de: {
@@ -68,5 +68,10 @@ export default {
     name: "Arabic / العربية",
     unicode: "🇸🇦",
     translators: ["Devx"],
+  },
+  be: {
+    name: "Belarusian / Беларуская",
+    unicode: "🇧🇾",
+    translators: ["lenify"],
   }
 };
