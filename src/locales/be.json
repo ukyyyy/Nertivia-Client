@@ -5,8 +5,8 @@
   "are-you-sure": "Вы ўпэўнены?",
   "copy-id-button": "Скапіяваць ID",
   "time": {
-    "today-at": "Сёння ў {0}",
-    "yesterday-at": "Учора ў {0}"
+    "today-at": "Сёння а {0}",
+    "yesterday-at": "Учора а {0}"
   },
   "message-area": {
     "no-message-perm": "У вас няма дазволу размаўляць у гэты канале.",
