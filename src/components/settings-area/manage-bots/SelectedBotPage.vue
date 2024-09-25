@@ -2,7 +2,7 @@
   <div class="container selected-bot-page">
     <TabLayout :tabs="tabs" @event="tabEvent" />
 
-    <!-- <div class="tabs">
+    <<div class="tabs">
       <div class="tab" :class="{ selected: tab === 0 }" @click="tab = 0">
         <div class="material-icons icon">account_circle</div>
         {{ $t("settings.manage-bots.edit-bot") }}
@@ -12,7 +12,7 @@
         {{ $t("settings.manage-bots.edit-commands") }}
       </div>
     </div> -->
-    <!-- <div class="content">
+    <div class="content">
       <EditBot
         :bot="bot"
         :botToken="botToken"
@@ -28,7 +28,7 @@
         v-if="tab === 1"
         @updated="botCommandsUpdate"
       />
-    </div> -->
+    </div>
     <CustomButton
       class="back-button"
       :name="$t('back')"
