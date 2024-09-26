@@ -1,5 +1,4 @@
 <template>
-  <!--
   <div class="interface">
     <div class="box">
       <div class="error" v-if="errors['other']">{{ errors["other"] }}</div>
@@ -125,12 +124,10 @@
       />
     </div>
   </div>
-  -->
   <div>Bots are unable to perform this action.</div>
 </template>
 
 <script lang="ts">
-/*
 import CustomInput from "@/components/CustomInput.vue";
 import CustomButton from "@/components/CustomButton.vue";
 import AvatarImage from "@/components/AvatarImage.vue";
@@ -315,7 +312,6 @@ export default defineComponent({
     },
   },
 });
-*/
 </script>
 
 <style lang="scss" scoped>
