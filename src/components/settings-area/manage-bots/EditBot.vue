@@ -1,4 +1,4 @@
-<template>
+<--<template>
   <div class="interface">
     <div class="box">
       <div class="error" v-if="errors['other']">{{ errors["other"] }}</div>
@@ -124,7 +124,7 @@
       />
     </div>
   </div>
-  <div>Bots are unable to perform this action.</div>
+  >
 </template>
 
 <script lang="ts">
@@ -183,7 +183,7 @@ export default defineComponent({
       if (!process.env.VUE_APP_MAIN_APP_URL) return "";
       return (
         process.env.VUE_APP_MAIN_APP_URL +
-        `bots/${this.bot.id}?perms=${this.permissions}`
+        bots/${this.bot.id}?perms=${this.permissions}
       );
     },
     showSaveButton(): any {
@@ -286,29 +286,36 @@ export default defineComponent({
             return;
           }
           const knownErrs = ["username", "tag"];
-          this.errors = (await err.response.json()) as any;
-          knownErrs.forEach((k) => this.errors[k] || (this.errors[k] = []));
+          const { errors, message } = await err.response.json();
+          if (message) {
+            this.errors["other"] = message;
+            return;
+          }
+          for (let i = 0; i < errors.length; i++) {
+            const error = errors[i];
+            if (!knownErrs.includes(error.param)) {
+              this.errors["other"] = error.msg;
+              continue;
+            }
+            this.errors[error.param] = error.msg;
+          }
         })
-        .finally(() => {
-          this.requestSent = false;
-        });
-    },
-    avatarChange(ev: Event) {
-      const input = ev.target as HTMLInputElement;
-      if (!input.files?.length) return;
-      const file = input.files[0];
-      const reader = new FileReader();
-      reader.onload = (e: ProgressEvent<FileReader>) => {
-        this.newAvatar = e.target?.result?.toString() || null;
-      };
-      reader.readAsDataURL(file);
+        .finally(() => (this.requestSent = false));
     },
     resetValues() {
-      this.username = this.bot.username;
-      this.tag = this.bot.tag;
+      this.username = this.bot.username || "";
+      this.tag = this.bot.tag || "";
       this.newAvatar = null;
-      this.showToken = false;
-      this.deleteBotConfirm = false;
+    },
+    avatarChange(event: any) {
+      const file: File = event.target.files[0];
+      event.target.value = "";
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onloadend = (event) => {
+        this.newAvatar = (event.target?.result as any) || null;
+      };
+      reader.readAsDataURL(file);
     },
   },
 });
