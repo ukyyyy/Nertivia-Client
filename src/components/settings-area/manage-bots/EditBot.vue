@@ -1,4 +1,4 @@
-<--<template>
+<template>
   <div class="interface">
     <div class="box">
       <div class="error" v-if="errors['other']">{{ errors["other"] }}</div>
@@ -124,7 +124,6 @@
       />
     </div>
   </div>
-  >
 </template>
 
 <script lang="ts">
@@ -183,7 +182,7 @@ export default defineComponent({
       if (!process.env.VUE_APP_MAIN_APP_URL) return "";
       return (
         process.env.VUE_APP_MAIN_APP_URL +
-        bots/${this.bot.id}?perms=${this.permissions}
+        `bots/${this.bot.id}?perms=${this.permissions}`
       );
     },
     showSaveButton(): any {
