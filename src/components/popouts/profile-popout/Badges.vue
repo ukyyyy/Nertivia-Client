@@ -19,6 +19,7 @@
 import { Badge } from "@/constants/badges";
 import { PropType } from "vue";
 import { defineComponent } from "vue";
+
 export default defineComponent({
   name: "Badges",
   props: {
@@ -37,6 +38,13 @@ export default defineComponent({
   transition: 0.2s;
   cursor: default;
   user-select: none;
+
+  .title {
+    font-size: 16px;
+    font-weight: bold;
+    position: relative;
+    z-index: 10;
+  }
 }
 .list {
   display: flex;
@@ -45,6 +53,8 @@ export default defineComponent({
   margin-top: 5px;
   margin-bottom: 5px;
   margin-left: 5px;
+  position: relative;
+  z-index: 1;
 }
 .badge {
   display: flex;
@@ -56,10 +66,13 @@ export default defineComponent({
   height: 23px;
   width: 23px;
   position: relative;
+  z-index: 1;
+
   img {
     height: 15px;
     width: 15px;
   }
+
   .tooltip {
     position: absolute;
     bottom: -40px;
@@ -76,9 +89,10 @@ export default defineComponent({
     visibility: hidden;
     transition: opacity 0.2s ease, visibility 0.2s ease, transform 0.2s ease;
     pointer-events: none;
-    max-width: 300px; /* Setzt die maximale Breite der Tooltip-Box */
+    max-width: 300px;
     width: auto;
   }
+
   &:hover .tooltip {
     opacity: 1;
     visibility: visible;
