@@ -9,6 +9,7 @@ export const BUG_CATCHER = 32;
 export const TRANSLATOR = 64;
 export const CONTRIBUTOR = 128;
 export const EMPLOYEES = 256;
+export const OLD_USER = 512;
 // next value = 256
 
 export interface Badge {
@@ -63,6 +64,11 @@ export const badges: Record<number, Badge> = {
     name: "Employees",
     iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/2728.png",
     color: "#2596be",
+  },
+  512: {
+    name: "Old User",
+    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f451.png",
+    color: "#ffa500",
   },
 };
 
