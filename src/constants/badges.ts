@@ -68,7 +68,7 @@ export const badges: Record<number, Badge> = {
   512: {
     name: "Old User",
     iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f451.png",
-    color: "#ffa500",
+    color: "#E30B5C",
   },
 };
 
