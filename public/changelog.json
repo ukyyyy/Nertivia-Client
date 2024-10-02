@@ -1,6 +1,14 @@
 [
 
 	{
+		"version": "1.54.2-stable",
+		"date": "02 10 2024",
+		"title": "Language add",
+		"new": [
+			"Add japanese translation"
+		]
+	},
+	{
 		"version": "1.54.1-stable",
 		"date": "29 09 2024",
 		"title": "Badge",
