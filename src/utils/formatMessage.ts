@@ -1,6 +1,4 @@
-import { ServerRolesModule } from "@/store/modules/serverRoles"; // Korrigierter Import
 import Channel from "@/interfaces/Channel";
-import Role from "@/interfaces/ServerRole"; // Stelle sicher, dass der Typ 'ServerRole' definiert ist
 import { ChannelsModule } from "@/store/modules/channels";
 import { UsersModule } from "@/store/modules/users";
 import emojiParser from "./emojiParser";
@@ -15,10 +13,9 @@ function replaceMentions(message: string) {
       (m) => "@" + m.username === username && m.tag === tag
     );
     if (!member) return word;
-    return `<@${member.id}>`;
+    return <@${member.id}>;
   });
 }
-
 function replaceChannelMentions(message: string, channels: Channel[]) {
   const getChannel = (name: string) => channels.find((c) => c.name === name);
 
@@ -33,7 +30,7 @@ function replaceChannelMentions(message: string, channels: Channel[]) {
     const channel = name[1] && getChannel(name[1]);
     if (channel) {
       result.push(message.slice(lastIndex, name.index));
-      result.push(`<#${channel.channelId}>`);
+      result.push(<#${channel.channelId}>);
       lastIndex = name.index + name[0].length;
     } else {
       reg.lastIndex = lastIndex + i;
@@ -42,23 +39,6 @@ function replaceChannelMentions(message: string, channels: Channel[]) {
   }
   result.push(message.slice(lastIndex));
   return result.join("");
-}
-
-// Fügt Rollensyntax für Discord-ähnliche Plattformen hinzu
-function replaceRoleMentions(message: string) {
-  const regex = /@&([^@&]+?(?=:)):([\w]*)/g;
-
-  return message.replace(regex, (word) => {
-    const roleName = word.split(":")[1];
-    if (!roleName) return word;
-
-    // Umwandlung der Rollen in ein Array
-    const rolesArray = Object.values(ServerRolesModule.serverRoles);
-    const role = rolesArray.find((r: Role) => r.name === roleName);
-    
-    if (!role) return word;
-    return `<@&${role.id}>`; // Rollen-Ping Syntax für Discord-ähnliche Plattformen
-  });
 }
 
 // used before sending a message to convert:
@@ -72,7 +52,6 @@ export function formatMessage(message: string, channels?: Channel[]) {
   if (channels?.length) {
     formatted = replaceChannelMentions(formatted, channels);
   }
-  formatted = replaceRoleMentions(formatted); // Füge hier die Rollensyntax hinzu
   return formatted;
 }
 
@@ -82,17 +61,16 @@ function revertMentions(message: string) {
     const id = res.slice(2, res.length - 1);
     const member = UsersModule.users[id];
     if (!member) return res;
-    return `@${member.username}:${member.tag}`;
+    return @${member.username}:${member.tag};
   });
 }
-
 // replace channel <#1234> with #channel#
 function revertChannel(message: string) {
   return message.replace(/<#([\d]+)>/g, (res) => {
     const id = res.slice(2, res.length - 1);
     const channel = ChannelsModule.channels[id];
     if (!channel?.name) return res;
-    return `#${channel.name}#`;
+    return #${channel.name}#;
   });
 }
 
