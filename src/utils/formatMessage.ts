@@ -1,6 +1,6 @@
 import { ServerRolesModule } from "@/store/modules/serverRoles"; // Korrigierter Import
 import Channel from "@/interfaces/Channel";
-import ServerRole from "@/interfaces/ServerRole"; // Sicherstellen, dass der Typ 'ServerRole' definiert ist
+import Role from "@/interfaces/ServerRole"; // Stelle sicher, dass der Typ 'ServerRole' definiert ist
 import { ChannelsModule } from "@/store/modules/channels";
 import { UsersModule } from "@/store/modules/users";
 import emojiParser from "./emojiParser";
@@ -51,25 +51,32 @@ function replaceRoleMentions(message: string) {
   return message.replace(regex, (word) => {
     const roleName = word.split(":")[1];
     if (!roleName) return word;
-    const role = Object.values(ServerRolesModule.serverRoles).find((r: ServerRole) => r.name === roleName);
+
+    // Umwandlung der Rollen in ein Array
+    const rolesArray = Object.values(ServerRolesModule.serverRoles);
+    const role = rolesArray.find((r: Role) => r.name === roleName);
+    
     if (!role) return word;
     return `<@&${role.id}>`; // Rollen-Ping Syntax für Discord-ähnliche Plattformen
   });
 }
 
-// Verwende die Funktionen vor dem Senden einer Nachricht
+// used before sending a message to convert:
+// :name: to <g:name:1234>
+// #channelname# to <#1234>
+// @username:tag to <@1234>
 export function formatMessage(message: string, channels?: Channel[]) {
   let formatted = message;
   formatted = emojiParser.replaceShortcode(formatted);
   formatted = replaceMentions(formatted);
-  formatted = replaceRoleMentions(formatted); // Füge die Rollenerwähnung hinzu
   if (channels?.length) {
     formatted = replaceChannelMentions(formatted, channels);
   }
+  formatted = replaceRoleMentions(formatted); // Füge hier die Rollensyntax hinzu
   return formatted;
 }
 
-// Revertieren der Erwähnungen
+// replace mention <@1234> with @test:owo1
 function revertMentions(message: string) {
   return message.replace(/<@([\d]+)>/g, (res) => {
     const id = res.slice(2, res.length - 1);
@@ -79,7 +86,7 @@ function revertMentions(message: string) {
   });
 }
 
-// Revertieren der Kanalnamen
+// replace channel <#1234> with #channel#
 function revertChannel(message: string) {
   return message.replace(/<#([\d]+)>/g, (res) => {
     const id = res.slice(2, res.length - 1);
@@ -89,22 +96,14 @@ function revertChannel(message: string) {
   });
 }
 
-// Revertieren der Rollennamen
-function revertRole(message: string) {
-  return message.replace(/<@&([\d]+)>/g, (res) => {
-    const id = res.slice(3, res.length - 1);
-    const role = Object.values(ServerRolesModule.serverRoles).find((r: ServerRole) => r.id === id);
-    if (!role) return res;
-    return `@&${role.name}:${role.tag}`; // Angenommen, dass es ein 'tag' Attribut gibt
-  });
-}
-
-// Verwende die Funktionen, wenn eine Nachricht bearbeitet wird
+// used when editing a message to convert:
+// <g:name:1234> to :name:
+// <#1234> to #channelname#
+// <@1234> to @username:tag
 export function revertFormat(message: string) {
   let formatted = message;
   formatted = emojiParser.emojiToShortcode(formatted);
   formatted = revertMentions(formatted);
   formatted = revertChannel(formatted);
-  formatted = revertRole(formatted); // Füge die Rollenerwähnung hinzu
   return formatted;
 }
