@@ -1,7 +1,7 @@
 import Channel from "@/interfaces/Channel";
 import { ChannelsModule } from "@/store/modules/channels";
 import { UsersModule } from "@/store/modules/users";
-import { RolesModule } from "@/store/modules/roles"; // Neue Rolle importieren
+import MentionRole from "@/components/markup/MentionRole.vue"; // Neue Rolle importieren
 import emojiParser from "./emojiParser";
 
 function replaceMentions(message: string) {
