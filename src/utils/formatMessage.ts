@@ -13,7 +13,7 @@ function replaceMentions(message: string) {
       (m) => "@" + m.username === username && m.tag === tag
     );
     if (!member) return word;
-    return <@${member.id}>;
+    return `<@${member.id}>`;
   });
 }
 function replaceChannelMentions(message: string, channels: Channel[]) {
@@ -30,7 +30,7 @@ function replaceChannelMentions(message: string, channels: Channel[]) {
     const channel = name[1] && getChannel(name[1]);
     if (channel) {
       result.push(message.slice(lastIndex, name.index));
-      result.push(<#${channel.channelId}>);
+      result.push(`<#${channel.channelId}>`);
       lastIndex = name.index + name[0].length;
     } else {
       reg.lastIndex = lastIndex + i;
@@ -61,7 +61,7 @@ function revertMentions(message: string) {
     const id = res.slice(2, res.length - 1);
     const member = UsersModule.users[id];
     if (!member) return res;
-    return @${member.username}:${member.tag};
+    return `@${member.username}:${member.tag}`;
   });
 }
 // replace channel <#1234> with #channel#
@@ -70,7 +70,7 @@ function revertChannel(message: string) {
     const id = res.slice(2, res.length - 1);
     const channel = ChannelsModule.channels[id];
     if (!channel?.name) return res;
-    return #${channel.name}#;
+    return `#${channel.name}#`;
   });
 }
 
