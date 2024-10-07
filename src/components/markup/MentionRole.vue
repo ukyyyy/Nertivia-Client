@@ -1,35 +1,34 @@
 <template>
   <span
     class="outer-mention"
-    @click="showRole"
+    @click="showRoleProfile"
     @contextmenu.prevent="roleContext"
   >
-    <AvatarImage :imageId="roleIcon" size="20px" />
-    <Mention :text="roleDisplay" />
+    <AvatarImage :imageId="role.icon" :seedId="role.id" size="20px" />
+    <Mention :text="display" />
   </span>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from "vue";
-import AvatarImage from "@/components/AvatarImage.vue";
+import { PropType } from "vue";
+import ServerRole from "@/interfaces/ServerRole";
 import Mention from "./Mention.vue";
+import AvatarImage from "@/components/AvatarImage.vue";
 import { PopoutsModule } from "@/store/modules/popouts";
+import { ServerMembersModule } from "@/store/modules/serverMembers";
 
+import { defineComponent } from "vue";
 export default defineComponent({
   components: { Mention, AvatarImage },
   props: {
     role: {
-      type: String,
+      type: Object as PropType<ServerRole>,
       required: true,
     },
   },
   computed: {
-    roleDisplay() {
-      return `@${this.role}`;
-    },
-    roleIcon() {
-      // Logic to return the appropriate icon based on role
-      return this.role === "everyone" ? "everyone-icon" : "role-icon";
+    display() {
+      return `${this.role.name}`;
     },
   },
   methods: {
@@ -37,18 +36,19 @@ export default defineComponent({
       PopoutsModule.ShowPopout({
         id: "context",
         component: "RoleContextMenu",
-        key: this.role + event.clientX + event.clientY,
+        key: this.role.id + event.clientX + event.clientY,
         data: {
-          role: this.role,
+          tempRole: this.role,
           x: event.clientX,
           y: event.clientY,
+          id: this.role.id,
         },
       });
     },
-    showRole(event: PointerEvent) {
+    showRoleProfile(event: PointerEvent) {
       PopoutsModule.ShowPopout({
-        id: "role",
-        component: "RoleProfilePopout",
+        id: "roleProfile",
+        component: "RoleProfilePopout", 
         data: {
           x: event.x,
           y: event.y,
