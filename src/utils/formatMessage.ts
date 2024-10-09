@@ -1,12 +1,11 @@
-import { ServerRolesModule } from "@/store/modules/serverRoles";
 import Channel from "@/interfaces/Channel";
-import ServerRole from "@/interfaces/ServerRole";
 import { ChannelsModule } from "@/store/modules/channels";
 import { UsersModule } from "@/store/modules/users";
 import emojiParser from "./emojiParser";
 
 function replaceMentions(message: string) {
   const regex = /@([^@]+?(?=:)):([\w]*)/g;
+
   return message.replace(regex, (word) => {
     const [username, tag] = word.split(":");
     if (!username || !tag) return word;
@@ -17,14 +16,16 @@ function replaceMentions(message: string) {
     return `<@${member.id}>`;
   });
 }
-
 function replaceChannelMentions(message: string, channels: Channel[]) {
   const getChannel = (name: string) => channels.find((c) => c.name === name);
+
   const result: string[] = [];
   const reg = /#([^#]+?)#/g;
   let name;
+
   let lastIndex = reg.lastIndex;
   let i = 0;
+
   while ((name = reg.exec(message)) !== null) {
     const channel = name[1] && getChannel(name[1]);
     if (channel) {
@@ -40,36 +41,21 @@ function replaceChannelMentions(message: string, channels: Channel[]) {
   return result.join("");
 }
 
-function replaceRoleMentions(message: string) {
-  const regex = /@&([\w-]+)/g;
-  return message.replace(regex, (word) => {
-    const roleId = word.slice(2);
-    const role = Object.values(ServerRolesModule.serverRoles).find((r: ServerRole) => r.id === roleId);
-    if (!role) return word;
-    
-    // Find all users with this role
-    const usersWithRole = Object.values(UsersModule.users).filter(user => 
-      user.roles && user.roles.includes(role.id)
-    );
-    
-    // Create mentions for all users with the role
-    const userMentions = usersWithRole.map(user => `<@${user.id}>`).join(' ');
-    
-    return `<@&${role.id}> ${userMentions}`;
-  });
-}
-
+// used before sending a message to convert:
+// :name: to <g:name:1234>
+// #channelname# to <#1234>
+// @username:tag to <@1234>
 export function formatMessage(message: string, channels?: Channel[]) {
   let formatted = message;
   formatted = emojiParser.replaceShortcode(formatted);
   formatted = replaceMentions(formatted);
-  formatted = replaceRoleMentions(formatted);
   if (channels?.length) {
     formatted = replaceChannelMentions(formatted, channels);
   }
   return formatted;
 }
 
+// replace mention <@1234> with @test:owo1
 function revertMentions(message: string) {
   return message.replace(/<@([\d]+)>/g, (res) => {
     const id = res.slice(2, res.length - 1);
@@ -78,7 +64,7 @@ function revertMentions(message: string) {
     return `@${member.username}:${member.tag}`;
   });
 }
-
+// replace channel <#1234> with #channel#
 function revertChannel(message: string) {
   return message.replace(/<#([\d]+)>/g, (res) => {
     const id = res.slice(2, res.length - 1);
@@ -88,20 +74,14 @@ function revertChannel(message: string) {
   });
 }
 
-function revertRole(message: string) {
-  return message.replace(/<@&([\d]+)>/g, (res) => {
-    const id = res.slice(3, res.length - 1);
-    const role = Object.values(ServerRolesModule.serverRoles).find((r: ServerRole) => r.id === id);
-    if (!role) return res;
-    return `@&${role.name}`;
-  });
-}
-
+// used when editing a message to convert:
+// <g:name:1234> to :name:
+// <#1234> to #channelname#
+// <@1234> to @username:tag
 export function revertFormat(message: string) {
   let formatted = message;
   formatted = emojiParser.emojiToShortcode(formatted);
   formatted = revertMentions(formatted);
   formatted = revertChannel(formatted);
-  formatted = revertRole(formatted);
   return formatted;
 }
