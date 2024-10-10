@@ -62,7 +62,7 @@ export const badges: Record<number, Badge> = {
   },
    256: {
     name: "Employees",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/2728.png",
+    iconURL: "https://nertivia-cdn.ciach795.com/7234162370073858048/7250253054568566784/bnr.png",
     color: "#2596be",
   },
   512: {
