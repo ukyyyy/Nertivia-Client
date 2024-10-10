@@ -52,7 +52,7 @@ export const badges: Record<number, Badge> = {
   },
   64: {
     name: "Translator",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f4dd.png",
+    iconURL: "https://nertivia-cdn.ciach795.com/7246094052045623296/7250138445484396544/Supporter%20-%20Badge.png",
     color: "#1fffb4",
   },
   128: {
