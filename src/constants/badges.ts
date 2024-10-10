@@ -37,7 +37,7 @@ export const badges: Record<number, Badge> = {
   },
   8: {
     name: "Supporter",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/2764.png",
+    iconURL: "https://nertivia-cdn.ciach795.com/7246094052045623296/7250138445484396544/Supporter%20-%20Badge.png",
     color: "#dd2e44",
   },
   16: {
@@ -47,12 +47,12 @@ export const badges: Record<number, Badge> = {
   },
   32: {
     name: "Bug Catcher",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f41b.png",
+    iconURL: "https://nertivia-cdn.ciach795.com/7246094052045623296/7250137839998865408/Bug%20Hunter%20Badge.png",
     color: "#e234eb",
   },
   64: {
     name: "Translator",
-    iconURL: "https://nertivia-cdn.ciach795.com/7246094052045623296/7250138445484396544/Supporter%20-%20Badge.png",
+    iconURL: "https://nertivia-cdn.ciach795.com/7246094052045623296/7250138323539202048/Translator%20-%20Badge.png",
     color: "#1fffb4",
   },
   128: {
@@ -67,7 +67,7 @@ export const badges: Record<number, Badge> = {
   },
   512: {
     name: "Old User",
-    iconURL: process.env.VUE_APP_TWEMOJI_LOCATION + "/1f451.png",
+    iconURL: "https://nertivia-cdn.ciach795.com/7246094052045623296/7250138069146275840/Old%20User%20-%20Badge.png",
     color: "#E30B5C",
   },
 };
