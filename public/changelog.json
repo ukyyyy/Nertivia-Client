@@ -2,6 +2,14 @@
 
 	{
 		"version": "1.54.3-stable",
+		"date": "11 10 2024",
+		"title": "Add ApplyVerify site",
+		"new": [
+			"Add the Apply Verify site https://nertivia.com/applyverify"
+		]
+	},
+	{
+		"version": "1.54.3-stable",
 		"date": "10 10 2024",
 		"title": "Update Badge",
 		"changes": [
