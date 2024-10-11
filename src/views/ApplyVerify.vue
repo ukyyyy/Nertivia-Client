@@ -42,7 +42,6 @@
 <script lang="ts">
 import Header from "@/components/home-page/Header.vue";
 import { defineComponent } from "vue";
-import axios from "axios";
 
 export default defineComponent({
   name: "ApplyServerVerify",
@@ -65,7 +64,18 @@ export default defineComponent({
       };
 
       try {
-        await axios.post(webhookUrl, payload);
+        const response = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify(payload)
+        });
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
         alert('Your application has been submitted!');
         this.resetForm();
       } catch (error) {
