@@ -44,7 +44,7 @@ const router = VueRouter.createRouter({
     },
     {
       path: "/applyverify",
-      name: "ApplyVerify",
+      name: "Apply_Verify",
       component: () => import("../views/ApplyVerify.vue"),
     },
     {
