@@ -3,7 +3,7 @@
     <Header />
     <div class="content">
       <div class="title">Apply for Server Verification</div>
-      <div class="updated-date">Last updated: Friday 08 October 2024</div>
+      <div class="updated-date">Last updated: Friday 11 October 2024</div>
       <p>
         If you find something missing or have any questions, email us at
         <a
@@ -29,8 +29,8 @@
         </div>
 
         <div class="form-group">
-          <label for="users">How many users are in your server? (min. 15):</label>
-          <input type="number" id="users" v-model.number="formData.userCount" min="15" required />
+          <label for="users">How many users are in your server? (min. 20):</label>
+          <input type="number" id="users" v-model.number="formData.userCount" min="20" required />
         </div>
 
         <button type="submit">Apply</button>
@@ -134,7 +134,7 @@ textarea {
 
 button {
   padding: 10px 15px;
-  background-color: #4CAF50;
+  background-color: #3cacf4;
   color: white;
   border: none;
   border-radius: 4px;
