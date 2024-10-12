@@ -44,8 +44,13 @@ const router = VueRouter.createRouter({
     },
     {
       path: "/applyverify",
-      name: "Apply_Verify",
+      name: "ApplyVerify",
       component: () => import("../views/ApplyVerify.vue"),
+    },
+    {
+      path: "/employee",
+      name: "Employee",
+      component: () => import("../views/Employee.vue"),
     },
     {
       path: "/popout-css-editor",
