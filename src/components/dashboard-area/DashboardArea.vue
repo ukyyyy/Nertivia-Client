@@ -4,6 +4,7 @@
     <div class="content">
       <ProfileCard />
       <NotificationCard />
+      <NewsCard />
     </div>
   </div>
 </template>
@@ -12,12 +13,13 @@
 import Header from "@/components/Header.vue";
 import NotificationCard from "./NotificationCard.vue";
 import ProfileCard from "./ProfileCard.vue";
+import NewsCard from "./NewsCard.vue"; // Importiere NewsCard
 import { TabsModule } from "@/store/modules/tabs";
 
 import { defineComponent } from "vue";
 export default defineComponent({
   name: "DashboardArea",
-  components: { NotificationCard, ProfileCard, Header },
+  components: { NotificationCard, ProfileCard, Header, NewsCard },
   mounted() {
     TabsModule.setCurrentTab({ name: "Dashboard", icon: "dashboard" });
   },
