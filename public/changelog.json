@@ -1,6 +1,14 @@
 [
 
 	{
+		"version": "1.54.4-stable",
+		"date": "13 10 2024",
+		"title": "Add News",
+		"new": [
+			"Add News Section to the Dashboard"
+		]
+	},
+	{
 		"version": "1.54.3-stable",
 		"date": "11 10 2024",
 		"title": "Add ApplyVerify site",
