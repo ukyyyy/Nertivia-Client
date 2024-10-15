@@ -2,7 +2,7 @@
   <div class="card">
     <div class="title">{{ $t("News") }}</div>
     <div class="content" v-if="news.length">
-      <div v-for="item in sortedNews" :key="item.date" class="news-item">
+      <div v-for="item in news" :key="item.date" class="news-item">
         <div class="news-date">{{ formatDate(item.date) }}</div>
         <div class="news-title">{{ item.title }}</div>
         <ul v-if="item.important.length" class="news-important">
@@ -26,11 +26,6 @@ export default defineComponent({
   },
   mounted() {
     this.fetchNews(); 
-  },
-  computed: {
-    sortedNews() {
-      return this.news.slice().sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
-    },
   },
   methods: {
     async fetchNews() {
