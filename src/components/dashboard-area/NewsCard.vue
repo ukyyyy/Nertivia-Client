@@ -32,11 +32,6 @@ export default defineComponent({
       try {
         const newsData = [
           {
-            date: "2024-10-11",
-            title: "New Partnership",
-            important: ["We have a new partnership with DayQuest"],
-          },
-          {
             date: "2024-10-15",
             title: "Hiring Developers and Moderators",
             important: [
