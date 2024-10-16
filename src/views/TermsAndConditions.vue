@@ -89,27 +89,37 @@
       <div class="sub-title">9. Governing Law</div>
       <p>
         Any claim related to Nertivia's Website shall be governed by the laws of
-        gb without regards to its conflict of law provisions
+        gb without regards to its conflict of law provisions.
       </p>
-      <div class="sub-title">10. Age Requirement.</div>
+      <div class="sub-title">10. Age Requirement</div>
       <p>
         By creating an account on the Nertivia site, you agree and are positive
         you are over the age of 14 and the age of consent in your country. If
-        you are caught underaged or is in the range of minority, your account
-        will be suspended. Once you are over the age of 14, do email
+        you are caught underaged or are in the range of minority, your account
+        will be suspended. Once you are over the age of 14, email
         <a href="mailto:support@nertivia.com?subject=About%20My%20Age"
           >support@nertivia.com</a
         >
         with proof of your age to get your account unsuspended.
       </p>
-      <div class="sub-title">11. Servers.</div>
+      <div class="sub-title">11. Servers</div>
       <p>
         Creating a server on Nertivia affiliated with exploitation of any game
         or creating a NSFW based server will cause your account to be suspended
-        and server to be deleted. This is to ensure our members have a great
+        and the server to be deleted. This is to ensure our members have a great
         environment to learn and have fun in.
       </p>
-      <div class="sub-title">12. Behaviour.</div>
+      <div class="sub-title">12. Suspension of Accounts</div>
+      <p>
+        Nertivia reserves the right to suspend user accounts without prior
+        notice or providing a specific reason. This may include, but is not
+        limited to, situations where a user has violated our terms, where there
+        is suspicious activity on the account, or where Nertivia determines that
+        the suspension is necessary to protect the integrity of the platform and
+        its community. Such actions are at Nertivia's sole discretion and users
+        may or may not be provided with an explanation for the suspension.
+      </p>
+      <div class="sub-title">13. Behaviour</div>
       <p>
         Racism or harassment of any kind is prohibited on Nertivia. We would
         like everyone to have a sense of safety when using this platform. We
