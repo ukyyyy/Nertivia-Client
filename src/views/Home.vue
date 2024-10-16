@@ -49,6 +49,7 @@
     <div class="footer">
       <a href="/privacy">Privacy Policy</a>
       <a href="/terms-and-conditions">Terms And Conditions</a>
+      <a href="/imprint">Imprint</a>
     </div>
   </div>
 </template>
