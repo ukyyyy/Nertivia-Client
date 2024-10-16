@@ -48,6 +48,11 @@ const router = VueRouter.createRouter({
       component: () => import("../views/ApplyVerify.vue"),
     },
     {
+      path: "/imprint",
+      name: "Imprint",
+      component: () => import("../views/Imprint.vue"),
+    },
+    {
       path: "/employee",
       name: "Employee",
       component: () => import("../views/Employee.vue"),
