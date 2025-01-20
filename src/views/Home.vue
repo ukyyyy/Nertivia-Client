@@ -4,7 +4,9 @@
       <p class="message">
         This page is a placeholder for Nertivia. Nertivia no longer exists, but instead, there is Nerimtiy — the latest version of the old Nertivia. Join now:
       </p>
-      <button class="join-button">Join Now</button>
+      <a href="https://nerimity.com" target="_blank" rel="noopener noreferrer">
+        <button class="join-button">Join Now</button>
+      </a>
     </div>
   </div>
 </template>
