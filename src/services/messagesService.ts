@@ -1,175 +1,198 @@
-import {
-  Module,
-  VuexModule,
-  Action,
-  Mutation,
-  getModule,
-} from "vuex-module-decorators";
-import store from "..";
+import wrapper from "./wrapper";
+import Message from "@/interfaces/Message";
+import User from "@/interfaces/User";
+import { socket } from "@/socket";
 
-import { postFormDataMessage } from "@/services/messagesService";
-import { MessagesModule } from "./messages";
-import fileSize from "filesize";
-
-export interface UploadQueue {
-  message: string;
-  uploading: boolean;
-  compress: boolean;
-  isImage: boolean;
-  cdn: number;
-  file: File;
+interface ResponseFetch {
   channelId: string;
-  progress: number;
-@@ -26,82 +12,10 @@ export interface UploadQueue {
-class FileUpload extends VuexModule {
-  file: { file?: File } = {};
-  isImage = false;
-  cdn = 0;
-  compress = true;
-  uploadQueue: UploadQueue[] = [];
-
-  @Mutation
-  private SET_FILE(payload: File | undefined) {
-    this.file.file = payload;
-  }
-
-  @Action
-  public SetFile(payload: File | undefined) {
-    this.SET_FILE(payload);
-    if (payload === undefined) {
-      this.SetIsImage(false);
-      this.SetCompress(false);
-      this.SetCDN(0);
-    }
-  }
-  @Mutation
-  private SET_IS_IMAGE(payload: boolean) {
-    this.isImage = payload;
-  }
-
-  @Action
-  public SetIsImage(payload: boolean) {
-    this.SET_IS_IMAGE(payload);
-    if (payload === true) {
-      this.SetCompress(true);
-      this.SetCDN(1);
-    }
-  }
-  @Mutation
-  private SET_CDN(payload: number) {
-    this.cdn = payload;
-  }
-
-  @Action
-  public SetCDN(payload: number) {
-    this.SET_CDN(payload);
-  }
-  @Mutation
-  private SET_QUEUE_UPLOADING(payload: { index: number; value: boolean }) {
-    this.uploadQueue[payload.index].uploading = payload.value;
-  }
-
-  @Action
-  public SetQueueUploading(payload: { index: number; value: boolean }) {
-    this.SET_QUEUE_UPLOADING(payload);
-  }
-  @Mutation
-  private SET_QUEUE_PROGRESS(payload: { index: number; value: number }) {
-    this.uploadQueue[payload.index].progress = payload.value;
-  }
-
-  @Action
-  public SetQueueProgress(payload: { index: number; value: number }) {
-    this.SET_QUEUE_PROGRESS(payload);
-  }
-  @Mutation
-  private REMOVE_FROM_QUEUE(payload: { index: number }) {
-    this.uploadQueue.splice(payload.index, 1);
-  }
-
-  @Action
-  public RemoveFromQueue(payload: { index: number }) {
-    this.REMOVE_FROM_QUEUE(payload);
-  }
-  @Mutation
-  private SET_COMPRESS(payload: boolean) {
-    this.compress = payload;
-  }
-
-  @Action
-  public SetCompress(payload: boolean) {
-    this.SET_COMPRESS(payload);
-  }
-
-  @Mutation
-  private ADD_TO_QUEUE(payload: { channelId: string; message: string }) {
-@@ -111,67 +25,27 @@ class FileUpload extends VuexModule {
-      uploading: false,
-      compress: this.compress,
-      isImage: this.isImage,
-      cdn: this.cdn,
-      channelId: payload.channelId,
-      file: this.file.file,
-      progress: 0,
-    });
-  }
-
-  @Action
-  public AddToQueue(payload: { channelId: string; message: string }) {
-    this.ADD_TO_QUEUE(payload);
-    this.SetFile(undefined);
-    this.RunQueue();
-  }
-
-  @Action
-  public async RunQueue() {
-    if (!this.uploadQueue[0]) return;
-    const isUploading = this.uploadQueue[0].uploading;
-    if (isUploading) return;
-    this.SetQueueUploading({ index: 0, value: true });
-    const currentItem = this.uploadQueue[0];
-
-
-    postFormDataMessage(
-      currentItem.message,
-      currentItem.cdn,
-      currentItem.channelId,
-      currentItem.file,
-      currentItem.isImage,
-      currentItem.compress,
-      (error, progress, done) => {
-        if (error) {
-          MessagesModule.AddChannelMessage({
-            channelId: currentItem.channelId,
-            localMessage: true,
-            message:
-              JSON.stringify(error.message) +
-              `\n\nMessage: ${currentItem.message}\nFile name: ${
-                currentItem.file.name
-              }\nFile size: ${fileSize(currentItem.file.size)}`,
-            messageID: Math.random().toString(),
-            type: 0,
-            created: Date.now(),
-            creator: {
-              username: "Beep Boop",
-              id: "0",
-              bot: true,
-              tag: "0000",
-            },
-            quotes: [],
-          });
-          this.RemoveFromQueue({ index: 0 });
-          this.RunQueue();
-        }
-        if (progress) {
-          this.SetQueueProgress({ index: 0, value: progress });
-        }
-        if (done) {
-          this.RemoveFromQueue({ index: 0 });
-          this.RunQueue();
-        }
-      }
-    );
-  }
+  messages: Message[];
 }
-export const FileUploadModule = getModule(FileUpload);
+interface ResponsePost {
+  tempID: string;
+  messageCreated: Message;
+}
+export function fetchMessages(channelId: string): Promise<ResponseFetch> {
+  return wrapper().get(`messages/channels/${channelId}`).json();
+}
+export function fetchMessagesContinue(
+  channelId: string,
+  continueMessageID: string
+): Promise<ResponseFetch> {
+  return wrapper()
+    .get(`messages/channels/${channelId}?continue=${continueMessageID}`)
+    .json();
+}
+export function deleteMessages(
+  channelId: string,
+  messageIds: string[]
+): Promise<ResponseFetch> {
+  return wrapper()
+    .delete(`messages/${channelId}/bulk`, { json: { ids: messageIds } })
+    .json();
+}
+export function fetchMessagesBefore(
+  channelId: string,
+  beforeMessageID: string
+): Promise<ResponseFetch> {
+  return wrapper()
+    .get(`messages/channels/${channelId}?before=${beforeMessageID}`)
+    .json();
+}
+export function fetchMessagesAround(
+  channelId: string,
+  messageID: string
+): Promise<ResponseFetch> {
+  return wrapper()
+    .get(`messages/channels/${channelId}?around=${messageID}`)
+    .json();
+}
+
+export interface PostReaction {
+  emojiID?: string;
+  gif?: boolean;
+  unicode?: string;
+}
+
+export function addReaction(
+  channelId: string,
+  messageID: string,
+  reaction: PostReaction
+): Promise<any> {
+  return wrapper()
+    .post(`messages/${messageID}/channels/${channelId}/reactions`, {
+      json: reaction,
+    })
+    .json();
+}
+export function getReactedUsers(
+  channelId: string,
+  messageID: string,
+  limit: number,
+  emojiID?: string,
+  unicode?: string
+): Promise<User[]> {
+  const searchParams: any = { limit };
+  if (emojiID) {
+    searchParams.emojiID = emojiID;
+  } else {
+    searchParams.unicode = unicode;
+  }
+  return wrapper()
+    .get(`messages/${messageID}/channels/${channelId}/reactions/users`, {
+      searchParams,
+    })
+    .json();
+}
+export function removeReaction(
+  channelId: string,
+  messageID: string,
+  reaction: PostReaction
+): Promise<any> {
+  return wrapper()
+    .delete(`messages/${messageID}/channels/${channelId}/reactions`, {
+      json: reaction,
+    })
+    .json();
+}
+
+export function deleteMessage(
+  channelId: string,
+  messageID: string
+): Promise<any> {
+  return wrapper().delete(`messages/${messageID}/channels/${channelId}`).json();
+}
+export function postMessage(
+  message: string,
+  tempID: string,
+  channelId: string
+): Promise<ResponsePost> {
+  return wrapper()
+    .post(`messages/channels/${channelId}`, {
+      json: { message, tempID, socketID: socket.id },
+    })
+    .json();
+}
+
+export function editMessage(
+  messageID: string,
+  channelId: string,
+  data: any
+): Promise<ResponsePost> {
+  return wrapper()
+    .patch(`messages/${messageID}/channels/${channelId}`, {
+      json: data,
+    })
+    .json();
+}
+export function buttonClick(
+  channelId: string,
+  messageID: string,
+  buttonID: string
+): Promise<any> {
+  return wrapper()
+    .post(`channels/${channelId}/messages/${messageID}/button/${buttonID}`)
+    .json();
+}
+
+export function postTypingStatus(channelId: string): Promise<ResponsePost> {
+  return wrapper().post(`messages/${channelId}/typing`).json();
+}
+
+export function postFormDataMessage(
+  message: string,
+  cdn: number,
+  channelId: string,
+  file: File,
+  isImage: boolean,
+  compress: boolean,
+  callback: (error: any, progress: number | null, done: boolean | null) => void
+) {
+  const formData = new FormData();
+  if (message) {
+    formData.append("message", message);
+  }
+  formData.append("upload_cdn", cdn.toString());
+  if (isImage && compress) {
+    formData.append("compress", "1");
+  }
+  formData.append("file", file);
+
+  const request = new XMLHttpRequest();
+  request.open(
+    "POST",
+    process.env.VUE_APP_FETCH_PREFIX + `/messages/channels/${channelId}`
+  );
+  request.setRequestHeader(
+    "authorization",
+    localStorage.getItem("hauthid") || ""
+  );
+
+  request.onreadystatechange = function () {
+    if (request.readyState === 4) {
+      if (request.status === 200) {
+        callback(null, null, true);
+      } else {
+        callback(JSON.parse(request.response), null, null);
+      }
+    }
+  };
+  request.upload.onprogress = (progressEvent) => {
+    const percentCompleted = Math.round(
+      (progressEvent.loaded * 100) / progressEvent.total
+    );
+
+    // execute the callback
+    if (callback) callback(null, percentCompleted, null);
+
+    return percentCompleted;
+  };
+
+  request.send(formData);
+
+  // return wrapper()
+  //   .post(`messages/chanfnels/${channelId}`, {
+  //     body: formData,
+
+  //   })
+  //   .json();
+}
