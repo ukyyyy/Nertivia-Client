@@ -11,7 +11,7 @@
       />
       <div class="title">{{ $t("upload-dialog.upload-to") }}:</div>
       <RadioBox
-        :items="['Google Drive', 'Nertivia CDN']"
+        :items="['Google Drive', 'Local Storage']"
         @change="onRadioIndexChange"
         v-model="cdn"
       />
@@ -36,6 +36,10 @@ export default defineComponent({
     return {
       messageLogsEl: null as HTMLElement | null,
       width: "450px",
+      // Lokale Auswahl des Upload-Ziels (0 = Google Drive, 1 = lokale Speicherung).
+      // Dieser Wert wird nicht mehr in den FileUpload-Store gespiegelt,
+      // weil die CDN-Funktionalität entfernt wurde.
+      cdnValue: 1,
     };
   },
   computed: {
@@ -65,14 +69,15 @@ export default defineComponent({
     },
     cdn: {
       get(): any {
-        return FileUploadModule.cdn;
+        return this.cdnValue;
       },
       set(val: number) {
-        FileUploadModule.SetCDN(val);
+        // Nur lokale Variable aktualisieren; kein SetCDN im Store mehr.
+        this.cdnValue = val;
       },
     },
     parentWidth(): any {
-      // this line is needed to make this getter reactive.
+      // diese Zeile ist nötig, um den Getter reaktiv zu machen.
       const windowWidth = useWindowProperties().resizeWidth;
 
       return this.messageLogsEl?.clientWidth || 0;
@@ -84,7 +89,7 @@ export default defineComponent({
     },
   },
   mounted() {
-    // set image preview
+    // Bildvorschau setzen
     const reader = new FileReader();
     const image = this.$refs.image as any;
     reader.onloadend = function () {
@@ -99,7 +104,7 @@ export default defineComponent({
     onToggleCompress(val: boolean) {
       if (!val && this.exceedCDNMaxSize && this.cdn === 1) {
         alert(
-          "Nertivia CDN Max file size: 7MB. \nEither compress the image or upload using Google Drive option."
+          "Local storage max file size: 7MB.\nEither compress the image or upload using Google Drive option."
         );
         FileUploadModule.SetCompress(true);
       }
