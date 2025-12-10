@@ -20,7 +20,9 @@ export interface UploadQueue {
   file: File;
   channelId: string;
   progress: number;
-@@ -26,82 +12,10 @@ export interface UploadQueue {
+}
+
+@Module({ dynamic: true, store, namespaced: true, name: "fileUpload" })
 class FileUpload extends VuexModule {
   file: { file?: File } = {};
   isImage = false;
@@ -103,7 +105,9 @@ class FileUpload extends VuexModule {
 
   @Mutation
   private ADD_TO_QUEUE(payload: { channelId: string; message: string }) {
-@@ -111,67 +25,27 @@ class FileUpload extends VuexModule {
+    if (!this.file.file) return;
+    this.uploadQueue.push({
+      message: payload.message,
       uploading: false,
       compress: this.compress,
       isImage: this.isImage,
@@ -128,8 +132,6 @@ class FileUpload extends VuexModule {
     if (isUploading) return;
     this.SetQueueUploading({ index: 0, value: true });
     const currentItem = this.uploadQueue[0];
-
-
     postFormDataMessage(
       currentItem.message,
       currentItem.cdn,
