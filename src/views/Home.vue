@@ -7,7 +7,7 @@
         <li><a href="#cta">Get started</a></li>
         <li><a href="#features">Features</a></li>
         <li><a href="#about">About</a></li>
-        <li><a @click.prevent="goToLogin" href="https://chat.radionet.com/login">Login</a></li>
+        <li><a @click.prevent="goToLogin" href="https://chat.radionet.app/login">Login</a></li>
       </ul>
     </nav>
 
@@ -119,11 +119,11 @@
 
 <script setup>
 const goToRegister = () => {
-  window.location.href = 'https://chat.radionet.com/register';
+  window.location.href = 'https://chat.radionet.app/register';
 };
 
 const goToLogin = () => {
-  window.location.href = 'https://chat.radionet.com/login';
+  window.location.href = 'https://chat.radionet.app/login';
 };
 </script>
 
