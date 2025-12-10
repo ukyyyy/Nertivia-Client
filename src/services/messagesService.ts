@@ -138,9 +138,13 @@ export function postTypingStatus(channelId: string): Promise<ResponsePost> {
   return wrapper().post(`messages/${channelId}/typing`).json();
 }
 
+/**
+ * Sendet eine Nachricht mit Anhang als multipart/form‑data.
+ * Das `cdn`‑Argument wurde entfernt, dadurch wird stets der lokale
+ * Speicher genutzt.
+ */
 export function postFormDataMessage(
   message: string,
-  cdn: number,
   channelId: string,
   file: File,
   isImage: boolean,
@@ -148,24 +152,14 @@ export function postFormDataMessage(
   callback: (error: any, progress: number | null, done: boolean | null) => void
 ) {
   const formData = new FormData();
-  if (message) {
-    formData.append("message", message);
-  }
-  formData.append("upload_cdn", cdn.toString());
-  if (isImage && compress) {
-    formData.append("compress", "1");
-  }
+  if (message) formData.append("message", message);
+  // Kein upload_cdn – Uploads landen immer auf dem lokalen Server.
+  if (isImage && compress) formData.append("compress", "1");
   formData.append("file", file);
 
   const request = new XMLHttpRequest();
-  request.open(
-    "POST",
-    process.env.VUE_APP_FETCH_PREFIX + `/messages/channels/${channelId}`
-  );
-  request.setRequestHeader(
-    "authorization",
-    localStorage.getItem("hauthid") || ""
-  );
+  request.open("POST", process.env.VUE_APP_FETCH_PREFIX + `/messages/channels/${channelId}`);
+  request.setRequestHeader("authorization", localStorage.getItem("hauthid") || "");
 
   request.onreadystatechange = function () {
     if (request.readyState === 4) {
@@ -176,18 +170,14 @@ export function postFormDataMessage(
       }
     }
   };
-  request.upload.onprogress = (progressEvent) => {
-    const percentCompleted = Math.round(
-      (progressEvent.loaded * 100) / progressEvent.total
-    );
-
-    // execute the callback
-    if (callback) callback(null, percentCompleted, null);
-
-    return percentCompleted;
+  request.upload.onprogress = (e) => {
+    const percent = Math.round((e.loaded * 100) / e.total);
+    callback(null, percent, null);
+    return percent;
   };
 
   request.send(formData);
+}
 
   // return wrapper()
   //   .post(`messages/chanfnels/${channelId}`, {
