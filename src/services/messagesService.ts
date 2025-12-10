@@ -11,9 +11,11 @@ interface ResponsePost {
   tempID: string;
   messageCreated: Message;
 }
+
 export function fetchMessages(channelId: string): Promise<ResponseFetch> {
   return wrapper().get(`messages/channels/${channelId}`).json();
 }
+
 export function fetchMessagesContinue(
   channelId: string,
   continueMessageID: string
@@ -22,6 +24,7 @@ export function fetchMessagesContinue(
     .get(`messages/channels/${channelId}?continue=${continueMessageID}`)
     .json();
 }
+
 export function deleteMessages(
   channelId: string,
   messageIds: string[]
@@ -30,6 +33,7 @@ export function deleteMessages(
     .delete(`messages/${channelId}/bulk`, { json: { ids: messageIds } })
     .json();
 }
+
 export function fetchMessagesBefore(
   channelId: string,
   beforeMessageID: string
@@ -38,6 +42,7 @@ export function fetchMessagesBefore(
     .get(`messages/channels/${channelId}?before=${beforeMessageID}`)
     .json();
 }
+
 export function fetchMessagesAround(
   channelId: string,
   messageID: string
@@ -64,6 +69,7 @@ export function addReaction(
     })
     .json();
 }
+
 export function getReactedUsers(
   channelId: string,
   messageID: string,
@@ -83,6 +89,7 @@ export function getReactedUsers(
     })
     .json();
 }
+
 export function removeReaction(
   channelId: string,
   messageID: string,
@@ -101,6 +108,7 @@ export function deleteMessage(
 ): Promise<any> {
   return wrapper().delete(`messages/${messageID}/channels/${channelId}`).json();
 }
+
 export function postMessage(
   message: string,
   tempID: string,
@@ -124,6 +132,7 @@ export function editMessage(
     })
     .json();
 }
+
 export function buttonClick(
   channelId: string,
   messageID: string,
@@ -139,9 +148,10 @@ export function postTypingStatus(channelId: string): Promise<ResponsePost> {
 }
 
 /**
- * Sendet eine Nachricht mit Anhang als multipart/form‑data.
- * Das `cdn`‑Argument wurde entfernt, dadurch wird stets der lokale
- * Speicher genutzt.
+ * Sendet eine multipart/form-data Nachricht mit optionalem Datei-Anhang.
+ *
+ * Der frühere `cdn`-Parameter und das `upload_cdn`-Formfeld wurden entfernt.
+ * Dateien werden damit immer über das API-Backend abgelegt, ohne externes CDN.
  */
 export function postFormDataMessage(
   message: string,
@@ -152,14 +162,24 @@ export function postFormDataMessage(
   callback: (error: any, progress: number | null, done: boolean | null) => void
 ) {
   const formData = new FormData();
-  if (message) formData.append("message", message);
-  // Kein upload_cdn – Uploads landen immer auf dem lokalen Server.
-  if (isImage && compress) formData.append("compress", "1");
+  if (message) {
+    formData.append("message", message);
+  }
+  // Kein `upload_cdn` mehr – Uploads gehen an die Standard-Storage-Route.
+  if (isImage && compress) {
+    formData.append("compress", "1");
+  }
   formData.append("file", file);
 
   const request = new XMLHttpRequest();
-  request.open("POST", process.env.VUE_APP_FETCH_PREFIX + `/messages/channels/${channelId}`);
-  request.setRequestHeader("authorization", localStorage.getItem("hauthid") || "");
+  request.open(
+    "POST",
+    process.env.VUE_APP_FETCH_PREFIX + `/messages/channels/${channelId}`
+  );
+  request.setRequestHeader(
+    "authorization",
+    localStorage.getItem("hauthid") || ""
+  );
 
   request.onreadystatechange = function () {
     if (request.readyState === 4) {
@@ -170,19 +190,16 @@ export function postFormDataMessage(
       }
     }
   };
-  request.upload.onprogress = (e) => {
-    const percent = Math.round((e.loaded * 100) / e.total);
-    callback(null, percent, null);
-    return percent;
+
+  request.upload.onprogress = (progressEvent) => {
+    const percentCompleted = Math.round(
+      (progressEvent.loaded * 100) / progressEvent.total
+    );
+
+    if (callback) callback(null, percentCompleted, null);
+
+    return percentCompleted;
   };
 
   request.send(formData);
-}
-
-  // return wrapper()
-  //   .post(`messages/chanfnels/${channelId}`, {
-  //     body: formData,
-
-  //   })
-  //   .json();
 }
