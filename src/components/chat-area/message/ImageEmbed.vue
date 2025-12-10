@@ -58,7 +58,7 @@ export default defineComponent({
       return this.imageURL?.endsWith(".gif");
     },
     imageURL(): any {
-      if (this.image.url.startsWith("https://nertivia-cdn.ciach795.com"))
+      if (this.image.url.startsWith("https://media.radionet.app"))
         return this.image.url;
 
       return (
