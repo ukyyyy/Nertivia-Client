@@ -26,8 +26,7 @@ export default defineComponent({
     },
   url(): string {
   if (this.file?.url) return this.file.url;
-
-  const CDN = (process.env.VUE_APP_NERTIVIA_CDN || "").replace(/\/+$/, "");
+    const CDN = (process.env.VUE_APP_NERTIVIA_CDN || "").replace(/\/+$/, "");
   return `${CDN}/${this.file?.userID}/${this.file?.fileID}/${this.file?.fileName}`;
 }`;
     },
