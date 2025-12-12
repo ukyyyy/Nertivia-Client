@@ -59,14 +59,11 @@ export default defineComponent({
   computed: {
     url(): any {
       return (
-        process.env.VUE_APP_NERTIVIA_CDN +
-        "emojis/" +
-        this.emoji.id +
-        (this.emoji.gif ? ".gif" : ".png")
-      );
+       const CDN = (process.env.VUE_APP_NERTIVIA_CDN || "").replace(/\/+$/, "");
+const EMOJI_URL = `${CDN}/emojis`;
     },
     nameChanged(): any {
-      return this.emojiName.trim() !== this.emoji.name;
+      return `${EMOJI_URL}/${this.emoji.id}.${this.emoji.gif ? "gif" : "png"}`;
     },
   },
   watch: {
