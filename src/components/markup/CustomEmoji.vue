@@ -9,7 +9,8 @@
 
 <script lang="ts">
 import { useWindowProperties } from "@/utils/windowProperties";
-const EMOJI_URL = process.env.VUE_APP_NERTIVIA_CDN + "emojis";
+const CDN = (process.env.VUE_APP_NERTIVIA_CDN || "").replace(/\/+$/, "");
+const EMOJI_URL = `${CDN}/emojis`;
 
 // todo: make CustomEmoji based on an Emoji class
 import { defineComponent } from "vue";
