@@ -57,15 +57,15 @@ export default defineComponent({
     };
   },
   computed: {
-    url(): any {
-      return (
-       const CDN = (process.env.VUE_APP_NERTIVIA_CDN || "").replace(/\/+$/, "");
-const EMOJI_URL = `${CDN}/emojis`;
-    },
-    nameChanged(): any {
-      return `${EMOJI_URL}/${this.emoji.id}.${this.emoji.gif ? "gif" : "png"}`;
-    },
+  url(): string {
+    const CDN = (process.env.VUE_APP_NERTIVIA_CDN || "").replace(/\/+$/, "");
+    const EMOJI_URL = `${CDN}/emojis`;
+    return `${EMOJI_URL}/${this.emoji.id}.${this.emoji.gif ? "gif" : "png"}`;
   },
+  nameChanged(): boolean {
+    return this.emojiName !== this.emoji.name;
+  },
+},
   watch: {
     emojiName: {
       handler: "onInput",
