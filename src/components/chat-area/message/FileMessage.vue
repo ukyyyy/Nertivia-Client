@@ -20,17 +20,17 @@ export default defineComponent({
       required: true,
     },
   },
-  computed: {
-    file(): any {
-      return this.message.files?.[0];
-    },
-    url(): string {
-      if (this.file?.url) return this.file.url;
-
-      const CDN = (process.env.VUE_APP_NERTIVIA_CDN || "").replace(/\/+$/, "");
-      return `${CDN}/${this.file?.userID}/${this.file?.fileID}/${this.file?.fileName}`;
-    },
+ computed: {
+  file(): any {
+    return this.message.files?.[0];
   },
+  url(): string {
+    // Wenn file.url vom Server kommt, diese verwenden
+    if (this.file?.url) return this.file.url;
+    // sonst API-Server nutzen
+    return `${process.env.VUE_APP_FETCH_PREFIX}/files/${this.file?.fileID}/${this.file?.fileName}`;
+  },
+},
 });
 </script>
 
