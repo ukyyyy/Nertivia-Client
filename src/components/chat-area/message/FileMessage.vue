@@ -10,10 +10,10 @@
 
 <script lang="ts">
 import Message from "@/interfaces/Message";
-import { PropType } from "vue";
-import { defineComponent } from "vue";
+import { PropType, defineComponent } from "vue";
+
 export default defineComponent({
-  name: "ImageMessageEmbed",
+  name: "FileMessageEmbed",
   props: {
     message: {
       type: Object as PropType<Message & { grouped: boolean }>,
@@ -24,11 +24,11 @@ export default defineComponent({
     file(): any {
       return this.message.files?.[0];
     },
-  url(): string {
-  if (this.file?.url) return this.file.url;
-    const CDN = (process.env.VUE_APP_NERTIVIA_CDN || "").replace(/\/+$/, "");
-  return `${CDN}/${this.file?.userID}/${this.file?.fileID}/${this.file?.fileName}`;
-}`;
+    url(): string {
+      if (this.file?.url) return this.file.url;
+
+      const CDN = (process.env.VUE_APP_NERTIVIA_CDN || "").replace(/\/+$/, "");
+      return `${CDN}/${this.file?.userID}/${this.file?.fileID}/${this.file?.fileName}`;
     },
   },
 });
