@@ -24,9 +24,12 @@ export default defineComponent({
     file(): any {
       return this.message.files?.[0];
     },
-    url(): any {
-      if (this.file.url) return this.file.url;
-      return `${process.env.VUE_APP_FETCH_PREFIX}/files/${this.file?.fileID}/${this.file?.fileName}`;
+  url(): string {
+  if (this.file?.url) return this.file.url;
+
+  const CDN = (process.env.VUE_APP_NERTIVIA_CDN || "").replace(/\/+$/, "");
+  return `${CDN}/${this.file?.userID}/${this.file?.fileID}/${this.file?.fileName}`;
+}`;
     },
   },
 });
